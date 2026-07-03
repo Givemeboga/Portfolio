@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0f0d}
+html{scroll-behavior:smooth}
+::selection{background:oklch(0.84 0.18 150 / 0.3)}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 var(--ac, oklch(0.84 0.18 150 / 0.5))}50%{box-shadow:0 0 22px 2px var(--ac, oklch(0.84 0.18 150 / 0.35))}}
+@keyframes sweep{0%{background-position:-160% 0}100%{background-position:260% 0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Mono',monospace;color:#c9d4cd;background:#0b0f0d;min-height:100vh" data-screen-label="Home">
+
+<sc-if value="{{ scanlines }}" hint-placeholder-val="{{ true }}">
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,0.14),rgba(0,0,0,0.14) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply"></div>
+</sc-if>
+
+<!-- AMBIENT BACKGROUND -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:linear-gradient(rgba(60,90,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(60,90,75,0.05) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)"></div>
+  <div style="position:absolute;top:-18%;left:8%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,var(--ac, oklch(0.84 0.18 150)),transparent 62%);opacity:0.06;filter:blur(46px);animation:drift1 26s ease-in-out infinite"></div>
+  <div style="position:absolute;bottom:-16%;right:6%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,var(--ac, oklch(0.84 0.18 150)),transparent 62%);opacity:0.05;filter:blur(52px);animation:drift2 32s ease-in-out infinite"></div>
+</div>
+
+<!-- NAV -->
+<div data-nav-bar style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.82);backdrop-filter:blur(10px)">
+  <a href="#top" style="font-size:14px;font-weight:600;color:var(--ac, oklch(0.84 0.18 150));text-decoration:none">gl1tch@portfolio:~$</a>
+  <div style="display:flex;gap:26px;font-size:12.5px">
+    <a href="#projects" data-spy="projects" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./projects</a>
+    <a href="#certs" data-spy="certs" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./certs</a>
+    <a href="#experience" data-spy="experience" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./experience</a>
+    <a href="#stack" data-spy="stack" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./stack</a>
+    <a href="#contact" data-spy="contact" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./contact</a>
+  </div>
+</div>
+
+<div id="top" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+
+  <!-- HERO -->
+  <div style="padding:96px 0 64px;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:22px">
+    <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// whoami</div>
+    <h1 data-reveal="1" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:64px;font-weight:700;line-height:1.04;color:#eef3ef;letter-spacing:-0.02em;min-height:1.04em">{{ typedName }}{{ cursor }}</h1>
+    <div data-reveal="2" style="font-size:16px;color:#8fa197;line-height:1.7;max-width:680px">Cybersecurity &amp; Cloud Engineering student — aspiring penetration tester on the offensive security track. Building &amp; breaking systems. Tunis → Nancy, Fall 2026.</div>
+    <div data-reveal="3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+      <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">aka Gl1tch</span>
+      <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">HTB Academy · Penetration Tester path</span>
+      <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">CTF player</span>
+    </div>
+    <div data-reveal="4" style="display:flex;gap:12px;margin-top:14px">
+      <a href="#projects" style="font-size:13px;font-weight:600;color:#0b0f0d;background:var(--ac, oklch(0.84 0.18 150));padding:13px 24px;border-radius:3px;text-decoration:none;transition:transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px oklch(0.84 0.18 150 / 0.25)">view projects</a>
+      <a href="https://github.com/Givemeboga" target="_blank" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">github ↗</a>
+    </div>
+    </div>
+    <div data-reveal="3" style="position:relative;justify-self:center">
+      <div style="position:absolute;inset:-14px;border-radius:16px;background:radial-gradient(circle at 50% 30%,var(--ac, oklch(0.84 0.18 150)),transparent 70%);opacity:0.18;filter:blur(24px)"></div>
+      <div style="position:relative;width:300px;height:380px;border-radius:12px;overflow:hidden;border:1px solid #24312a;box-shadow:0 24px 60px rgba(0,0,0,0.5)">
+        <img src="assets/portrait.jpg" alt="Youssef Ben Chaouacha" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(0.15) contrast(1.02)">
+        <div style="position:absolute;inset:0;background:linear-gradient(160deg,transparent 55%,rgba(11,15,13,0.55) 100%)"></div>
+        <div style="position:absolute;left:14px;bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ac, oklch(0.84 0.18 150));text-shadow:0 1px 6px rgba(0,0,0,0.8)">whoami → gl1tch</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects" style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px;scroll-margin-top:80px">
+    <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// projects --featured</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <a href="bioscan.html" data-reveal="1" style="text-decoration:none;border:1px solid #1c2420;border-radius:4px;padding:30px;display:flex;flex-direction:column;gap:14px;background:#0e1411;cursor:pointer;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s ease, border-color 0.3s, background 0.3s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));background:#101713;transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,0.45)">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:36px;height:36px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none"><img src="assets/bioscan/logo.png" alt="BioScan logo" style="width:30px;height:30px;object-fit:contain"></div>
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:24px;font-weight:600;color:#eef3ef">BioScan</div>
+          </div>
+          <div style="font-size:10.5px;color:#0b0f0d;background:var(--ac, oklch(0.84 0.18 150));padding:4px 9px;border-radius:3px;font-weight:600;white-space:nowrap">🏆 1ST PRIZE · BAL DES PROJETS 2026</div>
+        </div>
+        <div style="font-size:13px;color:#8fa197;line-height:1.7">Secure medical platform built by a team of 5 — dual pfSense firewalls across 7 segmented VLANs, BIND9, Samba AD, Grafana + Loki SIEM in GNS3, plus a FastAPI + React 18 app with JWT + 2FA, AES-256, ClamAV scanning, OCR anonymization and a reference-range analysis engine.</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+          <div style="font-size:11px;color:#5c6b63">pfSense · GNS3 · FastAPI · PostgreSQL</div>
+          <div style="font-size:12px;color:var(--ac, oklch(0.84 0.18 150))">cat case-file →</div>
+        </div>
+      </a>
+      <a href="fortify.html" data-reveal="2" style="text-decoration:none;border:1px solid #1c2420;border-radius:4px;padding:30px;display:flex;flex-direction:column;gap:14px;background:#0e1411;cursor:pointer;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s ease, border-color 0.3s, background 0.3s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));background:#101713;transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,0.45)">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <img src="assets/FortifyLogoCircle.png" alt="Fortify logo" style="width:36px;height:36px;border-radius:50%">
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-size:24px;font-weight:600;color:#eef3ef">Fortify</div>
+          </div>
+          <div style="font-size:10.5px;color:#9db3a7;border:1px solid #24312a;padding:4px 9px;border-radius:3px;white-space:nowrap">OPEN SOURCE</div>
+        </div>
+        <div style="font-size:13px;color:#8fa197;line-height:1.7">Web application security scanner. Working passive engine — TLS, security headers and sensitive-path checks — served over a FastAPI + SQLite backend. AI analyzer and dashboard on the roadmap.</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+          <div style="font-size:11px;color:#5c6b63">Python · FastAPI · SQLite</div>
+          <div style="font-size:12px;color:var(--ac, oklch(0.84 0.18 150))">cat case-file →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CERTS -->
+  <div id="certs" style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px;scroll-margin-top:80px">
+    <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// certs --path</div>
+    <div data-reveal="1" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="padding:16px 26px;border:1px solid var(--ac, oklch(0.84 0.18 150));border-radius:4px;color:var(--ac, oklch(0.84 0.18 150));font-size:15px;font-weight:600;animation:pulseGlow 3.2s ease-in-out infinite">eJPT<div style="font-size:10.5px;color:#7c8a82;font-weight:400;margin-top:5px">in progress</div></div>
+      <div style="color:#3a473f">──▶</div>
+      <div style="padding:16px 26px;border:1px dashed #24312a;border-radius:4px;color:#7c8a82;font-size:15px;font-weight:600">PNPT<div style="font-size:10.5px;color:#5c6b63;font-weight:400;margin-top:5px">next</div></div>
+      <div style="color:#3a473f">──▶</div>
+      <div style="padding:16px 26px;border:1px dashed #24312a;border-radius:4px;color:#7c8a82;font-size:15px;font-weight:600">OSCP<div style="font-size:10.5px;color:#5c6b63;font-weight:400;margin-top:5px">target</div></div>
+      <div style="font-size:12.5px;color:#5c6b63;margin-left:8px;max-width:300px;line-height:1.6">Hands-on training via HTB Academy — Penetration Tester job-role path.</div>
+    </div>
+    <div data-reveal="2" style="font-size:12px;color:#5c6b63;line-height:1.7">also in progress: CyberOps Associate (Cisco) · LPIC-1 (LPI)</div>
+
+    <div data-reveal="3" style="font-size:11px;color:#5c6b63;letter-spacing:0.1em;margin-top:16px">EARNED CREDENTIALS &amp; AWARDS</div>
+    <div data-reveal="4" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+      <div data-cert="assets/certs/premier-prix.png" style="border:1px solid #1c2420;border-radius:6px;background:#0e1411;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s, border-color 0.3s" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.45);border-color:var(--ac, oklch(0.84 0.18 150))">
+        <div style="height:184px;overflow:hidden;background:#fff;border-bottom:1px solid #1c2420"><img src="assets/certs/premier-prix.png" alt="Premier Prix — Bal des Projets 2026" style="width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block"></div>
+        <div style="padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+            <div style="font-size:14px;color:#eef3ef;font-weight:600">🏆 Premier Prix</div>
+            <div style="font-size:10.5px;color:#0b0f0d;background:var(--ac, oklch(0.84 0.18 150));padding:3px 8px;border-radius:3px;font-weight:600">1ST PLACE</div>
+          </div>
+          <div style="font-size:12px;color:#8fa197;line-height:1.6">Projet Intégré Cloud &amp; Security — Bal des Projets 2026 (13ᵉ édition), team SKeySec</div>
+          <div style="font-size:11px;color:#5c6b63">ESPRIM · Tunis · 09 Jun 2026</div>
+        </div>
+      </div>
+      <div data-cert="assets/certs/cisco-netsec.png" style="border:1px solid #1c2420;border-radius:6px;background:#0e1411;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s, border-color 0.3s" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.45);border-color:var(--ac, oklch(0.84 0.18 150))">
+        <div style="height:184px;overflow:hidden;background:#fff;border-bottom:1px solid #1c2420;display:flex;align-items:center;justify-content:center"><img src="assets/certs/cisco-netsec-badge.png" alt="Cisco Network Security verified badge" style="height:156px;width:auto;object-fit:contain;display:block"></div>
+        <div style="padding:18px 20px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+            <div style="font-size:14px;color:#eef3ef;font-weight:600">Network Security</div>
+            <div style="font-size:10.5px;color:#9db3a7;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">CISCO · VERIFIED</div>
+          </div>
+          <div style="font-size:12px;color:#8fa197;line-height:1.6">Device hardening, firewalls, IPS &amp; VPNs — 70h, 45 hands-on labs on Cisco hardware &amp; Packet Tracer</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px">
+            <span style="font-size:10px;padding:3px 7px;background:#131a16;border-radius:3px;color:#8fa197">Firewalls</span>
+            <span style="font-size:10px;padding:3px 7px;background:#131a16;border-radius:3px;color:#8fa197">IPS</span>
+            <span style="font-size:10px;padding:3px 7px;background:#131a16;border-radius:3px;color:#8fa197">IPsec VPN</span>
+            <span style="font-size:10px;padding:3px 7px;background:#131a16;border-radius:3px;color:#8fa197">AAA</span>
+            <span style="font-size:10px;padding:3px 7px;background:#131a16;border-radius:3px;color:#8fa197">Cryptography</span>
+            <span style="font-size:10px;padding:3px 7px;background:#131a16;border-radius:3px;color:#8fa197">Zone-Based FW</span>
+          </div>
+          <a href="https://www.credly.com/badges/9b8b1d63-ddc6-42df-ac2b-2b4100467768" target="_blank" onClick="{{ stopProp }}" style="font-size:11px;color:var(--ac, oklch(0.84 0.18 150));text-decoration:none">Cisco Networking Academy · 11 Jun 2026 · verify ↗</a>
+        </div>
+      </div>
+      <div data-cert="assets/certs/englishscore-c1.png" style="border:1px solid #1c2420;border-radius:6px;background:#0e1411;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s, border-color 0.3s" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.45);border-color:var(--ac, oklch(0.84 0.18 150))">
+        <div style="height:184px;overflow:hidden;background:#2a1a4a;border-bottom:1px solid #1c2420"><img src="assets/certs/englishscore-c1.png" alt="EnglishScore Core Skills CEFR C1 certificate" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block"></div>
+        <div style="padding:18px 20px;display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+            <div style="font-size:14px;color:#eef3ef;font-weight:600">English · CEFR C1</div>
+            <div style="font-size:10.5px;color:#9db3a7;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">568 · ADVANCED</div>
+          </div>
+          <div style="font-size:12px;color:#8fa197;line-height:1.6">EnglishScore Core Skills (British Council) — Grammar 547 · Vocab 579 · Reading 584 · Listening 561</div>
+          <a href="https://englishscore.com/verify" target="_blank" onClick="{{ stopProp }}" style="font-size:11px;color:var(--ac, oklch(0.84 0.18 150));text-decoration:none">British Council · 12 Jun 2025 · code 8fa546602b68 ↗</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:none">
+    </div>
+  </div>
+  <sc-if value="{{ certOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeCert }}" style="position:fixed;inset:0;z-index:80;background:rgba(5,7,6,0.9);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:48px;cursor:zoom-out">
+      {{ certImg }}
+      <div style="position:absolute;top:24px;right:32px;font-size:13px;color:#c9d4cd;font-family:'IBM Plex Mono',monospace">esc / click to close ✕</div>
+    </div>
+  </sc-if>
+
+  <!-- EXPERIENCE -->
+  <div id="experience" style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:28px;scroll-margin-top:80px">
+    <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// experience --log</div>
+
+    <div data-reveal="1" style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em;margin-bottom:6px">INTERNSHIPS</div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+          <div style="font-size:13px;color:#eef3ef;font-weight:600">ST2I <span style="color:#5c6b63;font-weight:400">· web dev intern</span></div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Full-stack app generating dynamic UIs from a reusable component library — modular architecture, agile R&amp;D team</div>
+          <div style="font-size:11.5px;color:#5c6b63;text-align:right">Jul–Aug 2025 · Tunisia</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;align-items:baseline">
+          <div style="font-size:13px;color:#eef3ef;font-weight:600">Mazoon Design &amp; Software <span style="color:#5c6b63;font-weight:400">· web dev intern</span></div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Client-facing websites end-to-end — responsive front-ends in HTML, CSS, JavaScript, Bootstrap</div>
+          <div style="font-size:11.5px;color:#5c6b63;text-align:right">Jun–Aug 2023 · Oman</div>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal="2" style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+        <img src="assets/gl1tch-ctf-logo.png" alt="Gl1tch CTF logo" style="width:40px;height:40px;border-radius:50%;flex:none">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">CTF &amp; COMPETITIONS</div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+          <div style="font-size:13px;color:#eef3ef;font-weight:600">Polytechnique Sousse CTF <span style="color:#5c6b63;font-weight:400">· team Hunters</span></div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Cryptography, web security &amp; reverse engineering — 5,420 team points, 2,062 scored solo</div>
+          <div style="font-size:11.5px;color:var(--ac, oklch(0.84 0.18 150));text-align:right;font-weight:600">4TH PLACE</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+          <div style="font-size:13px;color:#eef3ef;font-weight:600">CyberSphere 7.0 <span style="color:#5c6b63;font-weight:400">· SecuriNets × Engineers Spark</span></div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6">National cybersecurity congress — tech talks, panels and CTF competitions (Beginner, Advanced &amp; Speedrun)</div>
+          <div style="font-size:11.5px;color:#5c6b63;text-align:right">Apr 2026 · Congress</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+          <div style="font-size:13px;color:#eef3ef;font-weight:600">Insight Hackathon <span style="color:#5c6b63;font-weight:400">· IEEE ESPRIT</span></div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Prototyped cybersecurity solutions to real-world problem statements in a team</div>
+          <div style="font-size:11.5px;color:#5c6b63;text-align:right">Hackathon</div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;align-items:baseline">
+          <div style="font-size:13px;color:#eef3ef;font-weight:600">CyberCamp 6.0 <span style="color:#5c6b63;font-weight:400">· INSAT</span></div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Intensive bootcamp — network security, intrusion testing, hardening, live attack-and-defense</div>
+          <div style="font-size:11.5px;color:#5c6b63;text-align:right">Bootcamp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div id="stack" style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px;scroll-margin-top:80px">
+    <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// stack --list</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px 48px">
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">INFRASTRUCTURE &amp; NETWORK</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">GNS3</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">pfSense</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">OpenvSwitch</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Kubernetes</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Ansible</span>
+        </div>
+      </div>
+      <div data-reveal="2" style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">OFFENSIVE &amp; SECURITY</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Kali Linux</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">OpenSSL</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VirusTotal</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">AbuseIPDB</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">URLhaus</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">MalwareBazaar</span>
+        </div>
+      </div>
+      <div data-reveal="3" style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">DEVELOPMENT</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Python</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">FastAPI</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">React</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">PostgreSQL</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">.NET / ASP.NET MVC</span>
+        </div>
+      </div>
+      <div data-reveal="4" style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">LANGUAGES</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Arabic — native</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">French — C1 · TCF</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">English — C1 · EnglishScore 568</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Spanish — A2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+    <div data-reveal="0" style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// education</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="border-left:2px solid #24312a;padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:13.5px;color:#eef3ef;font-weight:600">Lycée Zaouiet, Ksibet el Thrayet — Baccalauréat</div>
+          <div style="font-size:12px;color:#8fa197">Experimental Sciences track</div>
+        </div>
+        <div style="border-left:2px solid #24312a;padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:13.5px;color:#eef3ef;font-weight:600">ESPRIT, Tunis — Integrated prep cycle + 1st year engineering</div>
+          <div style="font-size:12px;color:#8fa197">2022–2025 · maths, CS, networks, software engineering</div>
+        </div>
+        <div style="border-left:2px solid var(--ac, oklch(0.84 0.18 150));padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:13.5px;color:#eef3ef;font-weight:600">ESPRIM, Monastir — Cybersecurity &amp; Cloud Computing</div>
+          <div style="font-size:12px;color:#8fa197;line-height:1.6">2025–present · 14.32/20 · Mention Bien · 59/60 ECTS<br>Cloud Integration Project 18.5 · CCNA Security 17.0 · ML for Cybersecurity 16.3</div>
+        </div>
+        <div style="border-left:2px solid #24312a;padding-left:18px;display:flex;flex-direction:column;gap:4px">
+          <div style="font-size:13.5px;color:#eef3ef;font-weight:600">CESI Nancy — Réseaux, Systèmes &amp; Cybersécurité</div>
+          <div style="font-size:12px;color:#8fa197">Engineering cycle · incoming Fall 2026</div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// off_the_clock</div>
+      <div style="font-size:13px;color:#8fa197;line-height:1.9">Photography on a Canon 1300D. Train travel. Cooking, reading, and defending FC Barcelona opinions. Gaming on a Legion Pro 5.</div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" style="padding:72px 0 88px;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px;scroll-margin-top:80px">
+    <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// contact --open</div>
+    <div data-reveal="2" style="display:flex;gap:12px;margin-top:8px">
+      <a href="https://github.com/Givemeboga" target="_blank" style="font-size:13px;font-weight:600;color:#0b0f0d;background:var(--ac, oklch(0.84 0.18 150));padding:13px 24px;border-radius:3px;text-decoration:none;transition:transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px oklch(0.84 0.18 150 / 0.25)">github ↗</a>
+      <a href="https://www.linkedin.com/in/youssef-ben-chaouacha-646715270/" target="_blank" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">linkedin ↗</a>
+      <a href="mailto:youssef.ben.chaouacha@gmail.com" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">email ↗</a>
+      <a href="https://learn.cylabacademy.org/users/Gl1tchYB" target="_blank" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">cylab academy ↗</a>
+    </div>
+    <div data-reveal="3" style="font-size:12px;color:#5c6b63;margin-top:6px">youssef.ben.chaouacha@gmail.com · Ain Zaghouan, Tunisia</div>
+    <div style="display:none">
+    </div>
+  </div>
+
+</div>
+
+<div style="position:relative;z-index:1;padding:24px 48px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center;max-width:1256px;margin:0 auto;box-sizing:border-box">
+  <div style="font-size:12px;color:#5c6b63">© 2026 Youssef Ben Chaouacha — Gl1tch</div>
+  <div style="display:flex;align-items:center;gap:18px">
+    <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5c6b63"><span style="width:7px;height:7px;border-radius:50%;background:var(--ac, oklch(0.84 0.18 150));box-shadow:0 0 8px var(--ac, oklch(0.84 0.18 150))"></span>visitors: <span data-visitors style="color:#9db3a7;font-variant-numeric:tabular-nums">·····</span></div>
+    <div style="font-size:12px;color:#5c6b63">exit code 0</div>
+  </div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;oklch(0.84 0.18 150)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#5ee29a&quot;,&quot;#38d3e0&quot;,&quot;#f0c04a&quot;,&quot;#f08a6a&quot;],&quot;section&quot;:&quot;Theme&quot;},&quot;scanlines&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { certOpen: false, certSrc: '', typed: '' };
+  componentDidMount() {
+    this.applyAccent();
+    setTimeout(() => this.setupMotion(), 60);
+    this.startTyping();
+    this.setupVisitors();
+    this._onKey = (e) => { if (e.key === 'Escape') this.setState({ certOpen: false }); };
+    window.addEventListener('keydown', this._onKey);
+  }
+  componentWillUnmount() { window.removeEventListener('keydown', this._onKey); clearTimeout(this._typeT); }
+  async setupVisitors() {
+    if (window.__gl1tchVisitors) return;
+    window.__gl1tchVisitors = true;
+    const el = document.querySelector('[data-visitors]');
+    if (!el) return;
+    const pad = n => String(n).padStart(5, '0');
+    const render = n => { el.textContent = pad(n); };
+    // global counter (activates on the deployed site); falls back to local if unreachable
+    try {
+      const r = await fetch('https://api.counterapi.dev/v1/gl1tch-portfolio/site-visits/up', { cache: 'no-store' });
+      if (!r.ok) throw new Error('bad status');
+      const data = await r.json();
+      const n = data.count ?? data.value ?? data.Count;
+      if (typeof n === 'number') { render(n); return; }
+      throw new Error('no count');
+    } catch (e) {
+      // local fallback — counts this browser only
+      let n = parseInt(localStorage.getItem('gl1tch_visits') || '0', 10);
+      if (!sessionStorage.getItem('gl1tch_counted')) { n += 1; localStorage.setItem('gl1tch_visits', String(n)); sessionStorage.setItem('gl1tch_counted', '1'); }
+      render(n || 1);
+    }
+  }
+  startTyping() {
+    const full = 'Youssef Ben Chaouacha';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) { this.setState({ typed: full }); return; }
+    let i = 0;
+    const tick = () => {
+      i++;
+      this.setState({ typed: full.slice(0, i) });
+      if (i < full.length) this._typeT = setTimeout(tick, 68 + Math.random() * 55);
+    };
+    this._typeT = setTimeout(tick, 450);
+  }
+  componentDidUpdate() { this.applyAccent(); setTimeout(() => this.setupMotion(), 60); }
+  setupMotion() {
+    if (window.__gl1tchMotion) return;
+    window.__gl1tchMotion = true;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // scroll reveal
+    const els = [...document.querySelectorAll('[data-reveal]')];
+    if (!reduced) {
+      els.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(18px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.2,0.7,0.3,1)';
+      });
+      const io = new IntersectionObserver(ents => {
+        ents.forEach(ent => {
+          if (!ent.isIntersecting) return;
+          const d = (parseInt(ent.target.dataset.reveal, 10) || 0) * 90;
+          setTimeout(() => { ent.target.style.opacity = '1'; ent.target.style.transform = 'none'; }, d);
+          io.unobserve(ent.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      els.forEach(el => io.observe(el));
+      setTimeout(() => els.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; }), 3200);
+    }
+    // count-up stats
+    const counters = [...document.querySelectorAll('[data-count]')];
+    const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    if (reduced) { counters.forEach(el => { el.textContent = fmt(+el.dataset.count); }); }
+    else {
+      const io2 = new IntersectionObserver(ents => {
+        ents.forEach(ent => {
+          if (!ent.isIntersecting) return;
+          io2.unobserve(ent.target);
+          const target = +ent.target.dataset.count, t0 = performance.now(), dur = 1300;
+          const step = t => {
+            const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+            ent.target.textContent = fmt(Math.round(target * e));
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(el => io2.observe(el));
+      setTimeout(() => counters.forEach(el => { el.textContent = fmt(+el.dataset.count); }), 4000);
+    }
+    // scrollspy
+    const links = [...document.querySelectorAll('[data-spy]')];
+    const spy = () => {
+      const y = window.scrollY + 150;
+      let cur = null;
+      links.forEach(l => { const s = document.getElementById(l.dataset.spy); if (s && s.offsetTop <= y) cur = l.dataset.spy; });
+      links.forEach(l => { l.style.color = l.dataset.spy === cur ? 'var(--ac, oklch(0.84 0.18 150))' : '#7c8a82'; });
+    };
+    window.addEventListener('scroll', spy, { passive: true });
+    spy();
+    // cert lightbox
+    document.querySelectorAll('[data-cert]').forEach(el => {
+      if (el.__certBound) return;
+      el.__certBound = true;
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        this.setState({ certOpen: true, certSrc: el.dataset.cert });
+      });
+    });
+  }
+  applyAccent() {
+    document.body.style.setProperty('--ac', this.props.accent ?? 'oklch(0.84 0.18 150)');
+  }
+  renderVals() {
+    return {
+      scanlines: this.props.scanlines ?? true,
+      typedName: this.state.typed,
+      certOpen: this.state.certOpen,
+      certImg: (this.state.certOpen && this.state.certSrc)
+        ? React.createElement('img', {
+            src: this.state.certSrc, alt: 'Certificate',
+            style: { maxWidth: '92%', maxHeight: '88%', borderRadius: '6px', boxShadow: '0 30px 90px rgba(0,0,0,0.7)' }
+          })
+        : null,
+      closeCert: () => this.setState({ certOpen: false }),
+      stopProp: (e) => { e.stopPropagation(); },
+      cursor: React.createElement('span', {
+        style: {
+          display: 'inline-block', width: '0.5em', height: '0.95em',
+          verticalAlign: '-0.08em', marginLeft: '10px',
+          background: 'var(--ac, oklch(0.84 0.18 150))',
+          animation: 'blink 1.1s steps(1) infinite'
+        }
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

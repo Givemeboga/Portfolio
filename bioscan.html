@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0f0d}
+html{scroll-behavior:smooth}
+::selection{background:oklch(0.84 0.18 150 / 0.3)}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Mono',monospace;color:#c9d4cd;background:#0b0f0d;min-height:100vh" data-screen-label="BioScan case file">
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,0.14),rgba(0,0,0,0.14) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply"></div>
+
+<!-- AMBIENT BACKGROUND -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:linear-gradient(rgba(60,90,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(60,90,75,0.05) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)"></div>
+  <div style="position:absolute;top:-18%;left:8%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.05;filter:blur(46px);animation:drift1 26s ease-in-out infinite"></div>
+  <div style="position:absolute;bottom:-16%;right:6%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.04;filter:blur(52px);animation:drift2 32s ease-in-out infinite"></div>
+</div>
+
+<!-- NAV -->
+<div style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+  <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/bioscan$</div>
+  <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+</div>
+
+<div style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+
+  <!-- HERO -->
+  <div style="padding:80px 0 56px;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+      <div style="width:64px;height:64px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 18px rgba(0,0,0,0.35)"><img src="assets/bioscan/logo.png" alt="BioScan logo" style="width:56px;height:56px;object-fit:contain"></div>
+      <h1 style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">BioScan</h1>
+      <div style="font-size:11px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:5px 11px;border-radius:3px;font-weight:600">🏆 1ST PRIZE · CLOUD &amp; SECURITY · BAL DES PROJETS 2026</div>
+    </div>
+    <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:720px">A secure medical document platform built end-to-end with team SKeySec at ESPRIT — from a hardened, segmented network in GNS3 up to an ML-powered web application.</div>
+    <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap;margin-top:4px">
+      <div><span style="color:#7c8a82">role:</span> Scrum Master</div>
+      <div><span style="color:#7c8a82">team:</span> SKeySec (5)</div>
+      <div><span style="color:#7c8a82">context:</span> Bal des Projets 2026, ESPRIT</div>
+      <a href="https://github.com/Givemeboga/BioScan" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/BioScan ↗</a>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:16px">
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">7</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">segmented VLANs</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">4</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">role-based dashboards</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">5</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">person team</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">20+</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">REST domains, Swagger-documented</div></div>
+    </div>
+  </div>
+
+  <!-- NETWORK -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// network --infrastructure</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:720px">A dual pfSense firewall architecture segments the platform into seven VLANs, with defense-in-depth between every zone. Core services run on dedicated segments; everything is observable through a central SIEM stack — designed, built and validated entirely in GNS3.</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px">
+      <figure style="margin:0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
+        <img src="assets/bioscan/architecture.png" alt="BioScan secured infrastructure overview" style="width:100%;height:auto;border-radius:4px;display:block">
+        <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">FIG 1 — Secured infrastructure: Cloud, DMZ &amp; segmented LAN</figcaption>
+      </figure>
+      <figure style="margin:0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
+        <img src="assets/bioscan/gns3-topology.png" alt="GNS3 network topology with dual pfSense and OpenvSwitch" style="width:100%;height:auto;border-radius:4px;display:block;background:#fff">
+        <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">FIG 2 — GNS3 build: dual pfSense, OpenvSwitch, NAT edge</figcaption>
+      </figure>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+      <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">VLAN SEGMENTS</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VLAN 10 · DMZ</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VLAN 20 · Database</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VLAN 30 · Médecin</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VLAN 50 · Technicien</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VLAN 60 · Backend / AI</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">VLAN 99 · Administration</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Stockage</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
+      <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Dual pfSense 2.7</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Perimeter + internal firewalling, NAT and per-VLAN ACL rules</div></div>
+      <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">BIND9 + Samba AD</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Internal DNS in the DMZ and Active Directory identity services</div></div>
+      <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Grafana + Loki SIEM</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Logs centralized from pfSense, web, database and VPN for real-time supervision</div></div>
+    </div>
+
+    <figure style="margin:12px 0 0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/bioscan/siem-grafana.png" alt="Grafana + Loki SIEM dashboard aggregating infrastructure logs" style="width:100%;height:auto;border-radius:4px;display:block">
+      <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">FIG 3 — SOC / SIEM: Grafana dashboard over Loki log streams</figcaption>
+    </figure>
+  </div>
+
+  <!-- WEB APP -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <figure style="margin:0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/bioscan/dashboard-admin.png" alt="BioScan administrator dashboard" style="width:100%;height:auto;border-radius:4px;display:block">
+      <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">FIG 4 — Administrator dashboard: roles, recent logins, security alerts &amp; service health</figcaption>
+    </figure>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:13px;color:oklch(0.84 0.18 150)">// webapp --security</div>
+      <div style="font-size:13px;color:#8fa197;line-height:1.8">The application layer handles medical document intake with a security-first pipeline: every upload is scanned, extracted, analyzed and reported automatically.</div>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">FastAPI + React 18 + PostgreSQL</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Role-based platform for Admin, Doctor, Technician and Patient</div></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Analysis engine</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Ingests CSV, Excel, PDF, JSON &amp; XML bilans; flags anomalies against clinical reference ranges with Pandas + Scikit-learn</div></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">JWT + 2FA / AES-256</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">TOTP two-factor auth, password-reset flow, encrypted sensitive data</div></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ClamAV</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Malware scanning on every uploaded document</div></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Tesseract OCR</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Automated anonymization of patient documents</div></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ReportLab</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Automated PDF &amp; JSON report generation</div></div>
+        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Admin console</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">User/doctor/technician CRUD, audit-log security feed, analytics dashboard</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LANDING / PATIENT PORTAL -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// app --patient-portal</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:720px">The patient-facing landing brings a clinical bilan into plain language — validated blood-work status, trend charts for cholesterol, glucose and white cells, the next appointment and a direct line to the medical team.</div>
+    <figure style="margin:0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/bioscan/patient-portal.png" alt="BioScan patient portal landing page" style="width:100%;height:auto;border-radius:4px;display:block">
+      <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">FIG 5 — Patient portal: results summary, trend analysis &amp; care-team messaging</figcaption>
+    </figure>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+    <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+    <a href="fortify.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: Fortify →</a>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>
