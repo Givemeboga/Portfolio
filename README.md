@@ -3,6 +3,8 @@
 A single-page cybersecurity portfolio with two project case-files (BioScan, Fortify).
 Static site — no build step, no server. Works on any static host.
 
+**Live:** https://givemeboga.github.io/Portfolio/
+
 ## Files that get deployed
 - `index.html` — home (portfolio)
 - `bioscan.html`, `fortify.html` — project case-files
@@ -14,19 +16,21 @@ Static site — no build step, no server. Works on any static host.
 > `fortify.html` are generated deploy copies with the internal links rewritten to clean
 > names. If you change a `.dc.html`, regenerate the matching deploy file.
 
-## Deploy free with GitHub Pages
+## Deployed with GitHub Pages
 
-1. **Create a repo** on github.com (e.g. `portfolio`). Public.
-2. **Upload the files.** On the repo page → *Add file → Upload files* → drag in
-   `index.html`, `bioscan.html`, `fortify.html`, `support.js`, `.nojekyll`, and the
-   whole `assets/` folder → *Commit changes*.
-   (Or via git — see below.)
-3. **Enable Pages.** Repo *Settings → Pages* → *Source: Deploy from a branch* →
-   Branch `main`, folder `/ (root)` → *Save*.
-4. Wait ~1 minute. Your site is live at
-   `https://<your-username>.github.io/<repo-name>/`.
+Repo: [github.com/Givemeboga/Portfolio](https://github.com/Givemeboga/Portfolio)
+(Settings → Pages → Source: `Deploy from a branch`, branch `main`, folder `/ (root)`)
 
-### Git command-line alternative
+### Pushing an update
+```bash
+cd "Portfolio creation project/deploy"
+git add .
+git commit -m "Update portfolio"
+git push
+```
+Pages redeploys automatically — changes are live within ~1 minute.
+
+### Redeploying from scratch (new repo)
 ```bash
 git init
 git add .
@@ -35,7 +39,7 @@ git branch -M main
 git remote add origin https://github.com/<your-username>/<repo-name>.git
 git push -u origin main
 ```
-Then do step 3 above.
+Then enable Pages as above.
 
 ## Custom domain (optional)
 In *Settings → Pages → Custom domain*, add your domain and create a CNAME record at
