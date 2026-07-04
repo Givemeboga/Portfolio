@@ -17,6 +17,17 @@ html{scroll-behavior:smooth}
 @keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
 @keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  .nav-bar{padding:12px 16px !important}
+  .nav-bar div{font-size:11px !important}
+  .container{padding:0 20px !important}
+  .case-title{font-size:32px !important}
+  .stats-row{flex-wrap:wrap !important}
+  .stats-row > div{flex:1 1 45% !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .exp-row{grid-template-columns:1fr !important;gap:6px !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:32px 20px 56px !important}
+}
 </style>
 </helmet>
 
@@ -32,19 +43,19 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- NAV -->
-<div style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+<div class="nav-bar" style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
   <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/bioscan$</div>
   <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
 </div>
 
-<div style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+<div class="container" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
 
   <!-- HERO -->
   <div style="padding:80px 0 56px;display:flex;flex-direction:column;gap:20px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
       <div style="width:64px;height:64px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 18px rgba(0,0,0,0.35)"><img src="assets/bioscan/logo.png" alt="BioScan logo" style="width:56px;height:56px;object-fit:contain"></div>
-      <h1 style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">BioScan</h1>
+      <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">BioScan</h1>
       <div style="font-size:11px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:5px 11px;border-radius:3px;font-weight:600">🏆 1ST PRIZE · CLOUD &amp; SECURITY · BAL DES PROJETS 2026</div>
     </div>
     <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:720px">A secure medical document platform built end-to-end with team SKeySec at ESPRIT — from a hardened, segmented network in GNS3 up to an ML-powered web application.</div>
@@ -54,7 +65,7 @@ html{scroll-behavior:smooth}
       <div><span style="color:#7c8a82">context:</span> Bal des Projets 2026, ESPRIT</div>
       <a href="https://github.com/Givemeboga/BioScan" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/BioScan ↗</a>
     </div>
-    <div style="display:flex;gap:16px;margin-top:16px">
+    <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">7</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">segmented VLANs</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">4</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">role-based dashboards</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">5</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">person team</div></div>
@@ -67,7 +78,7 @@ html{scroll-behavior:smooth}
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// network --infrastructure</div>
     <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:720px">A dual pfSense firewall architecture segments the platform into seven VLANs, with defense-in-depth between every zone. Core services run on dedicated segments; everything is observable through a central SIEM stack — designed, built and validated entirely in GNS3.</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px">
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px">
       <figure style="margin:0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
         <img src="assets/bioscan/architecture.png" alt="BioScan secured infrastructure overview" style="width:100%;height:auto;border-radius:4px;display:block">
         <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">FIG 1 — Secured infrastructure: Cloud, DMZ &amp; segmented LAN</figcaption>
@@ -91,9 +102,9 @@ html{scroll-behavior:smooth}
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
-      <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Dual pfSense 2.7</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Perimeter + internal firewalling, NAT and per-VLAN ACL rules</div></div>
-      <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">BIND9 + Samba AD</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Internal DNS in the DMZ and Active Directory identity services</div></div>
-      <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Grafana + Loki SIEM</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Logs centralized from pfSense, web, database and VPN for real-time supervision</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Dual pfSense 2.7</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Perimeter + internal firewalling, NAT and per-VLAN ACL rules</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">BIND9 + Samba AD</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Internal DNS in the DMZ and Active Directory identity services</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Grafana + Loki SIEM</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Logs centralized from pfSense, web, database and VPN for real-time supervision</div></div>
     </div>
 
     <figure style="margin:12px 0 0;border:1px solid #1c2420;border-radius:6px;background:#0e1411;padding:16px;display:flex;flex-direction:column;gap:12px">
@@ -112,13 +123,13 @@ html{scroll-behavior:smooth}
       <div style="font-size:13px;color:oklch(0.84 0.18 150)">// webapp --security</div>
       <div style="font-size:13px;color:#8fa197;line-height:1.8">The application layer handles medical document intake with a security-first pipeline: every upload is scanned, extracted, analyzed and reported automatically.</div>
       <div style="display:flex;flex-direction:column">
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">FastAPI + React 18 + PostgreSQL</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Role-based platform for Admin, Doctor, Technician and Patient</div></div>
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Analysis engine</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Ingests CSV, Excel, PDF, JSON &amp; XML bilans; flags anomalies against clinical reference ranges with Pandas + Scikit-learn</div></div>
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">JWT + 2FA / AES-256</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">TOTP two-factor auth, password-reset flow, encrypted sensitive data</div></div>
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ClamAV</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Malware scanning on every uploaded document</div></div>
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Tesseract OCR</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Automated anonymization of patient documents</div></div>
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ReportLab</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Automated PDF &amp; JSON report generation</div></div>
-        <div style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Admin console</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">User/doctor/technician CRUD, audit-log security feed, analytics dashboard</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">FastAPI + React 18 + PostgreSQL</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Role-based platform for Admin, Doctor, Technician and Patient</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Analysis engine</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Ingests CSV, Excel, PDF, JSON &amp; XML bilans; flags anomalies against clinical reference ranges with Pandas + Scikit-learn</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">JWT + 2FA / AES-256</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">TOTP two-factor auth, password-reset flow, encrypted sensitive data</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ClamAV</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Malware scanning on every uploaded document</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Tesseract OCR</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Automated anonymization of patient documents</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ReportLab</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Automated PDF &amp; JSON report generation</div></div>
+        <div class="exp-row" style="display:grid;grid-template-columns:190px 1fr;gap:20px;padding:14px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Admin console</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">User/doctor/technician CRUD, audit-log security feed, analytics dashboard</div></div>
       </div>
     </div>
   </div>
@@ -134,7 +145,7 @@ html{scroll-behavior:smooth}
   </div>
 
   <!-- FOOTER NAV -->
-  <div style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+  <div class="footer-bar" style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
     <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
     <a href="fortify.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: Fortify →</a>
   </div>

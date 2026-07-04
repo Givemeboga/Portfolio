@@ -20,6 +20,22 @@ html{scroll-behavior:smooth}
 @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 var(--ac, oklch(0.84 0.18 150 / 0.5))}50%{box-shadow:0 0 22px 2px var(--ac, oklch(0.84 0.18 150 / 0.35))}}
 @keyframes sweep{0%{background-position:-160% 0}100%{background-position:260% 0}}
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  #top{padding:0 20px !important}
+  [data-nav-bar]{padding:12px 16px !important;flex-wrap:wrap !important;row-gap:8px !important}
+  .nav-links{gap:12px !important;font-size:10.5px !important;flex-wrap:wrap !important}
+  .hero-grid{grid-template-columns:1fr !important;padding:56px 0 40px !important;gap:28px !important}
+  .hero-grid h1{font-size:36px !important}
+  .hero-portrait{justify-self:center !important}
+  .hero-portrait > div:last-child{width:240px !important;height:300px !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .grid-2 > a > div:first-child{flex-wrap:wrap !important}
+  .grid-2 > a > div:first-child > div:last-child{white-space:normal !important}
+  .exp-row{grid-template-columns:1fr !important;gap:6px !important}
+  .exp-row > div:last-child{text-align:left !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:20px !important}
+}
 </style>
 </helmet>
 
@@ -39,7 +55,7 @@ html{scroll-behavior:smooth}
 <!-- NAV -->
 <div data-nav-bar style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.82);backdrop-filter:blur(10px)">
   <a href="#top" style="font-size:14px;font-weight:600;color:var(--ac, oklch(0.84 0.18 150));text-decoration:none">gl1tch@portfolio:~$</a>
-  <div style="display:flex;gap:26px;font-size:12.5px">
+  <div class="nav-links" style="display:flex;gap:26px;font-size:12.5px">
     <a href="#projects" data-spy="projects" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./projects</a>
     <a href="#certs" data-spy="certs" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./certs</a>
     <a href="#experience" data-spy="experience" style="color:#7c8a82;text-decoration:none;transition:color 0.25s" style-hover="color:var(--ac, oklch(0.84 0.18 150))">./experience</a>
@@ -51,7 +67,7 @@ html{scroll-behavior:smooth}
 <div id="top" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
 
   <!-- HERO -->
-  <div style="padding:96px 0 64px;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center">
+  <div class="hero-grid" style="padding:96px 0 64px;display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:22px">
     <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// whoami</div>
     <h1 data-reveal="1" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:64px;font-weight:700;line-height:1.04;color:#eef3ef;letter-spacing:-0.02em;min-height:1.04em">{{ typedName }}{{ cursor }}</h1>
@@ -61,12 +77,12 @@ html{scroll-behavior:smooth}
       <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">HTB Academy · Penetration Tester path</span>
       <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">CTF player</span>
     </div>
-    <div data-reveal="4" style="display:flex;gap:12px;margin-top:14px">
+    <div data-reveal="4" style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
       <a href="#projects" style="font-size:13px;font-weight:600;color:#0b0f0d;background:var(--ac, oklch(0.84 0.18 150));padding:13px 24px;border-radius:3px;text-decoration:none;transition:transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px oklch(0.84 0.18 150 / 0.25)">view projects</a>
       <a href="https://github.com/Givemeboga" target="_blank" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">github ↗</a>
     </div>
     </div>
-    <div data-reveal="3" style="position:relative;justify-self:center">
+    <div data-reveal="3" class="hero-portrait" style="position:relative;justify-self:center">
       <div style="position:absolute;inset:-14px;border-radius:16px;background:radial-gradient(circle at 50% 30%,var(--ac, oklch(0.84 0.18 150)),transparent 70%);opacity:0.18;filter:blur(24px)"></div>
       <div style="position:relative;width:300px;height:380px;border-radius:12px;overflow:hidden;border:1px solid #24312a;box-shadow:0 24px 60px rgba(0,0,0,0.5)">
         <img src="assets/portrait.jpg" alt="Youssef Ben Chaouacha" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(0.15) contrast(1.02)">
@@ -79,7 +95,7 @@ html{scroll-behavior:smooth}
   <!-- PROJECTS -->
   <div id="projects" style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px;scroll-margin-top:80px">
     <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// projects --featured</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
       <a href="bioscan.html" data-reveal="1" style="text-decoration:none;border:1px solid #1c2420;border-radius:4px;padding:30px;display:flex;flex-direction:column;gap:14px;background:#0e1411;cursor:pointer;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s ease, border-color 0.3s, background 0.3s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));background:#101713;transform:translateY(-5px);box-shadow:0 18px 44px rgba(0,0,0,0.45)">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
           <div style="display:flex;align-items:center;gap:12px">
@@ -125,7 +141,7 @@ html{scroll-behavior:smooth}
     <div data-reveal="2" style="font-size:12px;color:#5c6b63;line-height:1.7">also in progress: CyberOps Associate (Cisco) · LPIC-1 (LPI)</div>
 
     <div data-reveal="3" style="font-size:11px;color:#5c6b63;letter-spacing:0.1em;margin-top:16px">EARNED CREDENTIALS &amp; AWARDS</div>
-    <div data-reveal="4" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+    <div data-reveal="4" class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
       <div data-cert="assets/certs/premier-prix.png" style="border:1px solid #1c2420;border-radius:6px;background:#0e1411;overflow:hidden;cursor:zoom-in;display:flex;flex-direction:column;transition:transform 0.3s cubic-bezier(.2,.7,.3,1), box-shadow 0.3s, border-color 0.3s" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.45);border-color:var(--ac, oklch(0.84 0.18 150))">
         <div style="height:184px;overflow:hidden;background:#fff;border-bottom:1px solid #1c2420"><img src="assets/certs/premier-prix.png" alt="Premier Prix — Bal des Projets 2026" style="width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block"></div>
         <div style="padding:18px 20px;display:flex;flex-direction:column;gap:6px">
@@ -185,12 +201,12 @@ html{scroll-behavior:smooth}
     <div data-reveal="1" style="display:flex;flex-direction:column;gap:6px">
       <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em;margin-bottom:6px">INTERNSHIPS</div>
       <div style="display:flex;flex-direction:column">
-        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+        <div class="exp-row" style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
           <div style="font-size:13px;color:#eef3ef;font-weight:600">ST2I <span style="color:#5c6b63;font-weight:400">· web dev intern</span></div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Full-stack app generating dynamic UIs from a reusable component library — modular architecture, agile R&amp;D team</div>
           <div style="font-size:11.5px;color:#5c6b63;text-align:right">Jul–Aug 2025 · Tunisia</div>
         </div>
-        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;align-items:baseline">
+        <div class="exp-row" style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;align-items:baseline">
           <div style="font-size:13px;color:#eef3ef;font-weight:600">Mazoon Design &amp; Software <span style="color:#5c6b63;font-weight:400">· web dev intern</span></div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Client-facing websites end-to-end — responsive front-ends in HTML, CSS, JavaScript, Bootstrap</div>
           <div style="font-size:11.5px;color:#5c6b63;text-align:right">Jun–Aug 2023 · Oman</div>
@@ -204,22 +220,22 @@ html{scroll-behavior:smooth}
         <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">CTF &amp; COMPETITIONS</div>
       </div>
       <div style="display:flex;flex-direction:column">
-        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+        <div class="exp-row" style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
           <div style="font-size:13px;color:#eef3ef;font-weight:600">Polytechnique Sousse CTF <span style="color:#5c6b63;font-weight:400">· team Hunters</span></div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Cryptography, web security &amp; reverse engineering — 5,420 team points, 2,062 scored solo</div>
           <div style="font-size:11.5px;color:var(--ac, oklch(0.84 0.18 150));text-align:right;font-weight:600">4TH PLACE</div>
         </div>
-        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+        <div class="exp-row" style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
           <div style="font-size:13px;color:#eef3ef;font-weight:600">CyberSphere 7.0 <span style="color:#5c6b63;font-weight:400">· SecuriNets × Engineers Spark</span></div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6">National cybersecurity congress — tech talks, panels and CTF competitions (Beginner, Advanced &amp; Speedrun)</div>
           <div style="font-size:11.5px;color:#5c6b63;text-align:right">Apr 2026 · Congress</div>
         </div>
-        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
+        <div class="exp-row" style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;border-bottom:1px solid #1c2420;align-items:baseline">
           <div style="font-size:13px;color:#eef3ef;font-weight:600">Insight Hackathon <span style="color:#5c6b63;font-weight:400">· IEEE ESPRIT</span></div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Prototyped cybersecurity solutions to real-world problem statements in a team</div>
           <div style="font-size:11.5px;color:#5c6b63;text-align:right">Hackathon</div>
         </div>
-        <div style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;align-items:baseline">
+        <div class="exp-row" style="display:grid;grid-template-columns:200px 1fr 180px;gap:24px;padding:20px 0;align-items:baseline">
           <div style="font-size:13px;color:#eef3ef;font-weight:600">CyberCamp 6.0 <span style="color:#5c6b63;font-weight:400">· INSAT</span></div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6">Intensive bootcamp — network security, intrusion testing, hardening, live attack-and-defense</div>
           <div style="font-size:11.5px;color:#5c6b63;text-align:right">Bootcamp</div>
@@ -231,7 +247,7 @@ html{scroll-behavior:smooth}
   <!-- STACK -->
   <div id="stack" style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px;scroll-margin-top:80px">
     <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// stack --list</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px 48px">
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px 48px">
       <div data-reveal="1" style="display:flex;flex-direction:column;gap:12px">
         <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">INFRASTRUCTURE &amp; NETWORK</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
@@ -276,7 +292,7 @@ html{scroll-behavior:smooth}
   </div>
 
   <!-- EDUCATION -->
-  <div style="padding:56px 0;border-top:1px solid #1c2420;display:grid;grid-template-columns:1fr 1fr;gap:48px">
+  <div class="grid-2" style="padding:56px 0;border-top:1px solid #1c2420;display:grid;grid-template-columns:1fr 1fr;gap:48px">
     <div data-reveal="0" style="display:flex;flex-direction:column;gap:16px">
       <div style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// education</div>
       <div style="display:flex;flex-direction:column;gap:14px">
@@ -307,7 +323,7 @@ html{scroll-behavior:smooth}
   <!-- CONTACT -->
   <div id="contact" style="padding:72px 0 88px;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px;scroll-margin-top:80px">
     <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// contact --open</div>
-    <div data-reveal="2" style="display:flex;gap:12px;margin-top:8px">
+    <div data-reveal="2" style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap">
       <a href="https://github.com/Givemeboga" target="_blank" style="font-size:13px;font-weight:600;color:#0b0f0d;background:var(--ac, oklch(0.84 0.18 150));padding:13px 24px;border-radius:3px;text-decoration:none;transition:transform 0.25s ease, box-shadow 0.25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 30px oklch(0.84 0.18 150 / 0.25)">github ↗</a>
       <a href="https://www.linkedin.com/in/youssef-ben-chaouacha-646715270/" target="_blank" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">linkedin ↗</a>
       <a href="mailto:youssef.ben.chaouacha@gmail.com" style="font-size:13px;font-weight:600;color:#c9d4cd;border:1px solid #24312a;padding:13px 24px;border-radius:3px;text-decoration:none;transition:border-color 0.25s, color 0.25s, transform 0.25s" style-hover="border-color:var(--ac, oklch(0.84 0.18 150));color:var(--ac, oklch(0.84 0.18 150));transform:translateY(-2px)">email ↗</a>
@@ -320,7 +336,7 @@ html{scroll-behavior:smooth}
 
 </div>
 
-<div style="position:relative;z-index:1;padding:24px 48px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center;max-width:1256px;margin:0 auto;box-sizing:border-box">
+<div class="footer-bar" style="position:relative;z-index:1;padding:24px 48px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center;max-width:1256px;margin:0 auto;box-sizing:border-box">
   <div style="font-size:12px;color:#5c6b63">© 2026 Youssef Ben Chaouacha — Gl1tch</div>
   <div style="display:flex;align-items:center;gap:18px">
     <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5c6b63"><span style="width:7px;height:7px;border-radius:50%;background:var(--ac, oklch(0.84 0.18 150));box-shadow:0 0 8px var(--ac, oklch(0.84 0.18 150))"></span>visitors: <span data-visitors style="color:#9db3a7;font-variant-numeric:tabular-nums">·····</span></div>

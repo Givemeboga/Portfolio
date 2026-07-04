@@ -17,6 +17,17 @@ html{scroll-behavior:smooth}
 @keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
 @keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
 @media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  .nav-bar{padding:12px 16px !important}
+  .nav-bar div{font-size:11px !important}
+  .container{padding:0 20px !important}
+  .fortify-hero{min-height:260px !important}
+  .hero-inner{padding:24px 20px !important;max-width:100% !important}
+  .case-title{font-size:30px !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:32px 20px 56px !important}
+}
 </style>
 </helmet>
 
@@ -32,24 +43,24 @@ html{scroll-behavior:smooth}
 </div>
 
 <!-- NAV -->
-<div style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+<div class="nav-bar" style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
   <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/fortify$</div>
   <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
 </div>
 
-<div style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+<div class="container" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
 
   <!-- HERO -->
   <div style="padding:44px 0 56px;display:flex;flex-direction:column;gap:22px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
-    <div style="position:relative;border:1px solid #1c2420;border-radius:6px;overflow:hidden;min-height:400px;display:flex;align-items:flex-end;background:#05070a">
+    <div class="fortify-hero" style="position:relative;border:1px solid #1c2420;border-radius:6px;overflow:hidden;min-height:400px;display:flex;align-items:flex-end;background:#05070a">
       <img src="assets/hero-cyber.png" alt="Fortify — a cyber fortress under attack" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center right">
       <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,10,0.94) 0%,rgba(5,7,10,0.72) 42%,rgba(5,7,10,0.15) 100%)"></div>
-      <div style="position:relative;padding:40px 44px;display:flex;flex-direction:column;gap:16px;max-width:640px">
-        <div style="display:flex;align-items:center;gap:16px">
+      <div class="hero-inner" style="position:relative;padding:40px 44px;display:flex;flex-direction:column;gap:16px;max-width:640px">
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
           <img src="assets/FortifyLogoCircle.png" alt="Fortify logo" style="width:64px;height:64px;border-radius:50%">
-          <div style="display:flex;align-items:center;gap:14px">
-            <h1 style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:52px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">Fortify</h1>
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:52px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">Fortify</h1>
             <div style="font-size:11px;color:#9db3a7;border:1px solid #3a4a5c;padding:5px 11px;border-radius:3px;font-weight:600">OPEN SOURCE</div>
           </div>
         </div>
@@ -67,7 +78,7 @@ html{scroll-behavior:smooth}
   <!-- ARCHITECTURE -->
   <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// architecture --modules</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+    <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
       <div style="border:1px solid #1c2420;border-radius:4px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
         <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">01</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">WORKING</div></div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">Scanner + API</div>
@@ -86,13 +97,13 @@ html{scroll-behavior:smooth}
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px">
       <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">PASSIVE CHECKS SHIPPED TODAY</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+      <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">TLS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Protocol version, certificate validity &amp; expiry, cipher suite</div></div>
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Headers</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Missing defensive headers, version-leaking headers, redirect chains</div></div>
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Sensitive paths</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Probes exposed paths — /.env, /.git/, /admin — and records status codes</div></div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:center;margin-top:8px;border:1px solid #1c2420;border-radius:6px;padding:32px;background:radial-gradient(120% 120% at 30% 20%,#0e1411,#0a0d0b)">
+    <div class="grid-2" style="display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:center;margin-top:8px;border:1px solid #1c2420;border-radius:6px;padding:32px;background:radial-gradient(120% 120% at 30% 20%,#0e1411,#0a0d0b)">
       <div style="position:relative;display:flex;align-items:center;justify-content:center">
         <span style="position:absolute;top:-6px;left:-6px;width:20px;height:20px;border-top:2px solid oklch(0.84 0.18 150);border-left:2px solid oklch(0.84 0.18 150)"></span>
         <span style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-top:2px solid oklch(0.84 0.18 150);border-right:2px solid oklch(0.84 0.18 150)"></span>
@@ -110,7 +121,7 @@ html{scroll-behavior:smooth}
   </div>
 
   <!-- FOOTER NAV -->
-  <div style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+  <div class="footer-bar" style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
     <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
     <a href="bioscan.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: BioScan →</a>
   </div>
