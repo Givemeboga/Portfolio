@@ -71,7 +71,7 @@ html{scroll-behavior:smooth}
     <div style="display:flex;flex-direction:column;gap:22px">
     <div data-reveal="0" style="font-size:13px;color:var(--ac, oklch(0.84 0.18 150))">// whoami</div>
     <h1 data-reveal="1" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:64px;font-weight:700;line-height:1.04;color:#eef3ef;letter-spacing:-0.02em;min-height:1.04em">{{ typedName }}{{ cursor }}</h1>
-    <div data-reveal="2" style="font-size:16px;color:#8fa197;line-height:1.7;max-width:680px">Cybersecurity &amp; Cloud Engineering student — aspiring penetration tester on the offensive security track. Building &amp; breaking systems. Tunis → Nancy, Fall 2026.</div>
+    <div data-reveal="2" style="font-size:16px;color:#8fa197;line-height:1.7;max-width:680px">Cybersecurity &amp; Cloud Engineering student — aspiring penetration tester on the offensive security track. Building &amp; breaking systems. Based in Tunisia.</div>
     <div data-reveal="3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
       <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">aka Gl1tch</span>
       <span style="font-size:12px;padding:7px 14px;border:1px solid #24312a;border-radius:3px;color:#9db3a7">HTB Academy · Penetration Tester path</span>
@@ -309,8 +309,8 @@ html{scroll-behavior:smooth}
           <div style="font-size:12px;color:#8fa197;line-height:1.6">2025–present · 14.32/20 · Mention Bien · 59/60 ECTS<br>Cloud Integration Project 18.5 · CCNA Security 17.0 · ML for Cybersecurity 16.3</div>
         </div>
         <div style="border-left:2px solid #24312a;padding-left:18px;display:flex;flex-direction:column;gap:4px">
-          <div style="font-size:13.5px;color:#eef3ef;font-weight:600">CESI Nancy — Réseaux, Systèmes &amp; Cybersécurité</div>
-          <div style="font-size:12px;color:#8fa197">Engineering cycle · incoming Fall 2026</div>
+          <div style="font-size:13.5px;color:#eef3ef;font-weight:600">ESPRIM, Monastir — 5th year (final year)</div>
+          <div style="font-size:12px;color:#8fa197">Engineering cycle · Cybersecurity &amp; Cloud Computing · incoming Fall 2026</div>
         </div>
       </div>
     </div>
@@ -366,18 +366,25 @@ class Component extends DCLogic {
     if (!el) return;
     const pad = n => String(n).padStart(5, '0');
     const render = n => { el.textContent = pad(n); };
-    // global counter (activates on the deployed site); falls back to local if unreachable
+    // Global unique-visitor counter (Abacus — free, no key). Each browser is counted
+    // once, ever: the first visit increments the shared total and is remembered in
+    // localStorage; every later visit (even weeks later) just reads the total without
+    // incrementing. Falls back to a local count only if the API is unreachable.
+    const base = 'https://abacus.jasoncameron.dev';
+    const ns = 'gl1tch-portfolio-yb', key = 'uniques';
+    const counted = localStorage.getItem('gl1tch_counted');
+    const url = `${base}/${counted ? 'get' : 'hit'}/${ns}/${key}`;
     try {
-      const r = await fetch('https://api.counterapi.dev/v1/gl1tch-portfolio/site-visits/up', { cache: 'no-store' });
+      const r = await fetch(url, { cache: 'no-store' });
       if (!r.ok) throw new Error('bad status');
       const data = await r.json();
-      const n = data.count ?? data.value ?? data.Count;
-      if (typeof n === 'number') { render(n); return; }
+      const n = data.value ?? data.count;
+      if (typeof n === 'number') { localStorage.setItem('gl1tch_counted', '1'); render(n); return; }
       throw new Error('no count');
     } catch (e) {
-      // local fallback — counts this browser only
+      // local fallback — counts this browser only (used if the global API is down)
       let n = parseInt(localStorage.getItem('gl1tch_visits') || '0', 10);
-      if (!sessionStorage.getItem('gl1tch_counted')) { n += 1; localStorage.setItem('gl1tch_visits', String(n)); sessionStorage.setItem('gl1tch_counted', '1'); }
+      if (!counted) { n += 1; localStorage.setItem('gl1tch_visits', String(n)); localStorage.setItem('gl1tch_counted', '1'); }
       render(n || 1);
     }
   }
