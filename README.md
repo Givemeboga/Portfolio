@@ -1,52 +1,37 @@
 # Gl1tch — Youssef Ben Chaouacha · Portfolio
 
-A single-page cybersecurity portfolio with two project case-files (BioScan, Fortify).
-Static site — no build step, no server. Works on any static host.
+👋 Hi, I'm **Youssef** — a Cybersecurity & Cloud Engineering student from Tunisia,
+online as **Gl1tch**. I'm on the offensive-security track (aspiring penetration
+tester), working through the HTB Academy Penetration Tester path and playing CTFs
+whenever I get the chance. I love building systems and then breaking them to
+understand how they really tick. This is the repo behind my portfolio — a place
+to share the projects I'm proud of and where I'm headed next.
 
 **Live:** https://givemeboga.github.io/Portfolio/
 
-## Files that get deployed
-- `index.html` — home (portfolio)
+---
+
+Personal cybersecurity portfolio — a single-page static site with two project
+case-files (BioScan, Fortify). No build step, no server; works on any static host.
+
+## Structure
+- `index.html` — home
 - `bioscan.html`, `fortify.html` — project case-files
-- `support.js` — runtime (loads React from a CDN at runtime)
+- `support.js` — runtime (loads React from a CDN)
 - `assets/` — images, logos, certificates
-- `.nojekyll` — tells GitHub Pages to serve files as-is
 
-> The `*.dc.html` files are the **editable source**. `index.html` / `bioscan.html` /
-> `fortify.html` are generated deploy copies with the internal links rewritten to clean
-> names. If you change a `.dc.html`, regenerate the matching deploy file.
-
-## Deployed with GitHub Pages
-
-Repo: [github.com/Givemeboga/Portfolio](https://github.com/Givemeboga/Portfolio)
-(Settings → Pages → Source: `Deploy from a branch`, branch `main`, folder `/ (root)`)
-
-### Pushing an update
+## Run locally
+Any static file server works, e.g.:
 ```bash
-cd "Portfolio creation project/deploy"
+python -m http.server 8000
+```
+Then open http://localhost:8000.
+
+## Deploy
+Hosted on GitHub Pages from the `main` branch (root). Push to `main` and the site
+redeploys automatically within about a minute:
+```bash
 git add .
 git commit -m "Update portfolio"
 git push
 ```
-Pages redeploys automatically — changes are live within ~1 minute.
-
-### Redeploying from scratch (new repo)
-```bash
-git init
-git add .
-git commit -m "Portfolio"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main
-```
-Then enable Pages as above.
-
-## Custom domain (optional)
-In *Settings → Pages → Custom domain*, add your domain and create a CNAME record at
-your registrar pointing to `<your-username>.github.io`.
-
-## Notes
-- An internet connection is required on the visitor's side (React + Google Fonts load
-  from CDNs).
-- The footer visitor counter uses a free public counter API; it starts counting once
-  the site is live on a real URL.
