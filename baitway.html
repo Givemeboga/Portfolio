@@ -56,9 +56,9 @@ html{scroll-behavior:smooth}
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
       <div style="width:64px;height:64px;border-radius:14px;background:#0e1411;border:1px solid #24312a;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 18px rgba(0,0,0,0.35)"><svg viewBox="0 0 64 64" width="40" height="40" role="img" aria-label="BaitWay logo"><g transform="translate(-2,-1)"><path d="M34 27 V34 A8 8 0 0 1 18 34 V52" fill="none" stroke="#F5F7FA" stroke-width="6.5" stroke-linecap="round"/><path d="M50 52 V30 A16 16 0 0 0 20.1 22" fill="none" stroke="#F5F7FA" stroke-width="6.5" stroke-linecap="round"/></g></svg></div>
       <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">BaitWay</h1>
-      <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">SOC PLATFORM · IN DEVELOPMENT</div>
+      <div style="font-size:11px;color:oklch(0.84 0.18 150);border:1px solid oklch(0.84 0.18 150 / 0.5);padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">SOC PLATFORM · v1.0.0</div>
     </div>
-    <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:720px">A SOC analyst platform that unifies the two most repetitive triage tasks — analysing suspicious emails and checking indicators of compromise — into one interface. Submit an email or an indicator, get an instant risk score and verdict enriched from multiple threat-intelligence sources.</div>
+    <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:720px">A SOC analyst platform that unifies the two most repetitive triage tasks — analysing suspicious emails and checking indicators of compromise — into one interface. Submit an email or an indicator, get an instant risk score and verdict enriched from multiple threat-intelligence sources. The first complete release (v1.0.0) ships both modules integrated, with every phishing score explainable down to the signal that produced it.</div>
     <figure style="margin:8px 0 0;border:1px solid #1c2420;border-radius:8px;background:#0e1411;padding:14px;display:flex;flex-direction:column;gap:12px">
       <img src="assets/baitway/hero.png" alt="BaitWay console — a phishing email triaged, its indicators extracted and enriched across VirusTotal, URLhaus and WHOIS into one verdict" style="width:100%;height:auto;border-radius:5px;display:block">
       <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">The BaitWay console — a phishing submission scored 92/100, its extracted indicators enriched across VirusTotal, URLhaus &amp; WHOIS into one verdict</figcaption>
@@ -67,42 +67,49 @@ html{scroll-behavior:smooth}
       <div><span style="color:#7c8a82">role:</span> Phishing Portal (Module A)</div>
       <div><span style="color:#7c8a82">team:</span> with Iheb Ben Massaoud (2)</div>
       <div><span style="color:#7c8a82">context:</span> Internship · ESPRIM, Monastir</div>
+      <div><span style="color:#7c8a82">status:</span> v1.0.0 · Sep 2026 · MIT</div>
       <a href="https://github.com/Givemeboga/Baitway" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/Baitway ↗</a>
+      <a href="https://github.com/Givemeboga/Baitway/releases/tag/v1.0.0" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">release notes ↗</a>
     </div>
     <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">2</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">core SOC modules</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">5</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">threat-intel sources</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">0–100</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">risk score + verdict</div></div>
-      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">MIT</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">open source</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">44</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">automated tests in CI</div></div>
     </div>
   </div>
 
   <!-- MODULES -->
   <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// modules --soc</div>
-    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:720px">Two engines behind one dashboard. Both return the same verdict scale, so an analyst reads phishing submissions and indicator lookups the same way.</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:720px">No single tool combined full-email analysis, an explainable score, a shared triage queue and a direct path to indicator lookup — that gap is BaitWay. Two engines behind one dashboard, both returning the same verdict scale, so an analyst reads phishing submissions and indicator lookups the same way.</div>
 
     <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px">
       <div style="border:1px solid #1c2420;border-radius:6px;padding:28px;background:#0e1411;display:flex;flex-direction:column;gap:14px">
         <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">🎣 Module A — Phishing Portal</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">MINE</div></div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">.eml intake</span> — paste or upload a suspicious email</div>
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Headers</span> — SPF, DKIM, DMARC, From / Reply-To, originating IP</div>
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">URLs</span> — defanging, shorteners, lookalike domains, reputation</div>
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Attachments</span> — MD5 / SHA-256, dangerous extensions</div>
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Triage queue</span> — submissions sorted by risk score</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Headers</span> — SPF/DKIM/DMARC, Reply-To &amp; display-name spoofing, origin IP</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">URLs</span> — defanging, typosquatting (homoglyphs + edit distance), punycode, shorteners, raw-IP hosts</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Attachments</span> — MD5/SHA-256 hashed in memory (never executed), executables, macros, double extensions</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Content</span> — urgency, threats, credential &amp; financial bait — French &amp; English</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Explainable scoring</span> — weighted signals with diminishing returns; every point traces to a named reason</div>
         </div>
       </div>
       <div style="border:1px solid #1c2420;border-radius:6px;padding:28px;background:#0e1411;display:flex;flex-direction:column;gap:14px">
         <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">🔍 Module B — IOC Lookup</div><div style="font-size:10px;color:#7c8a82;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">TEAMMATE</div></div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Auto-detect</span> — IP / domain / URL / hash</div>
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Multi-source</span> — VirusTotal, AbuseIPDB, URLhaus, MalwareBazaar, WHOIS</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Server-side detection</span> — IP / domain / URL / hash</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Multi-source</span> — VirusTotal, AbuseIPDB, URLhaus, MalwareBazaar, WHOIS/RDAP</div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Aggregation</span> — many sources into one verdict</div>
-          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">Caching</span> — respects third-party API quotas</div>
+          <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">60-min cache</span> — protects free-tier API quotas</div>
           <div style="font-size:12.5px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef">History + export</span> — search log, CSV / blocklist export</div>
         </div>
       </div>
+    </div>
+
+    <div style="border:1px solid #24312a;border-left:3px solid oklch(0.84 0.18 150);border-radius:6px;padding:22px 24px;background:#0e1411;display:flex;flex-direction:column;gap:8px;margin-top:4px">
+      <div style="font-size:11px;color:oklch(0.84 0.18 150);letter-spacing:0.1em">THE PHISHING → IOC BRIDGE</div>
+      <div style="font-size:13px;color:#8fa197;line-height:1.7">Any indicator extracted from an analysed email opens an IOC lookup pre-filled, with a link back to the originating submission — so the two modules collapse into one continuous workflow instead of copy-pasting between tools. It's the platform's core value, and the headline of v1.0.0.</div>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
@@ -114,6 +121,7 @@ html{scroll-behavior:smooth}
         <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">OpenAPI docs</span>
         <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">PostgreSQL + Alembic</span>
         <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Dockerized DB</span>
+        <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">CI · 44 tests</span>
       </div>
     </div>
   </div>
@@ -175,11 +183,12 @@ html{scroll-behavior:smooth}
   <!-- ROADMAP -->
   <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// roadmap --phases</div>
+    <div style="font-size:12px;color:#5c6b63;line-height:1.7;margin-top:-6px">Phases 0–3 shipped in v1.0.0.</div>
     <div style="display:flex;flex-direction:column;gap:12px">
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5ee29a;flex:none">[x]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 0 — Shared foundation</span> · JWT auth, database, app shell, API contract</div></div>
-      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 1 — Engines</span> · phishing &amp; IOC analysis built in parallel</div></div>
-      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 2 — Interfaces</span> · module UIs</div></div>
-      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 3 — Integration</span> · unified dashboard, cross-module linking, tests</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5ee29a;flex:none">[x]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 1 — Engines</span> · phishing &amp; IOC analysis built in parallel</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5ee29a;flex:none">[x]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 2 — Interfaces</span> · module UIs</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5ee29a;flex:none">[x]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 3 — Integration</span> · unified dashboard, phishing → IOC bridge, 44 tests in CI</div></div>
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 4 — Bonus</span> · ML scoring, advanced export, PDF reports</div></div>
     </div>
   </div>
