@@ -64,12 +64,12 @@ html{scroll-behavior:smooth}
             <div style="font-size:11px;color:#9db3a7;border:1px solid #3a4a5c;padding:5px 11px;border-radius:3px;font-weight:600">OPEN SOURCE</div>
           </div>
         </div>
-        <div style="font-size:15px;color:#c3d0dc;line-height:1.7">An open-source web application security scanner, MIT-licensed and built in phases. Point it at a target and its passive engine runs read-only checks — TLS, security headers, exposed paths — returning one structured, persisted result over a FastAPI backend.</div>
+        <div style="font-size:15px;color:#c3d0dc;line-height:1.7">An open-source web application security scanner, MIT-licensed and built in phases — now three parts working together: a passive + active scanner, a grounded AI analyzer that runs on a local LLM by default, and a React operator console. Point it at a target and it probes the perimeter, then explains and ranks what it found.</div>
       </div>
     </div>
     <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap">
       <div><span style="color:#7c8a82">role:</span> author</div>
-      <div><span style="color:#7c8a82">status:</span> active development</div>
+      <div><span style="color:#7c8a82">status:</span> active · scanner + AI + dashboard shipped</div>
       <div><span style="color:#7c8a82">license:</span> MIT</div>
       <a href="https://github.com/Givemeboga/Fortify" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/Fortify ↗</a>
     </div>
@@ -80,27 +80,35 @@ html{scroll-behavior:smooth}
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// architecture --modules</div>
     <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
       <div style="border:1px solid #1c2420;border-radius:4px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">01</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">WORKING</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">01</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">DONE</div></div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">Scanner + API</div>
-        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">FastAPI backend running the passive scan engine in the background; results persisted to SQLite, retrieved by ID via a documented REST API.</div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">FastAPI backend running passive and opt-in active scans in the background; results persisted to SQLite and retrieved by ID over a documented REST API.</div>
       </div>
       <div style="border:1px solid #1c2420;border-radius:4px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">02</div><div style="font-size:10px;color:#7c8a82;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">PLANNED</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">02</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">DONE</div></div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">AI analyzer</div>
-        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Claude-powered module to read scanner output, score risk and suggest remediation instead of a raw wall of alerts.</div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Grounded LLM module: findings are pulled from the scan in code, then a local model (Ollama) only explains and scores them. Risk levels are computed in code, and scan data never leaves your machine. Cloud (Gemini) is opt-in, BYOK.</div>
       </div>
       <div style="border:1px solid #1c2420;border-radius:4px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">03</div><div style="font-size:10px;color:#7c8a82;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">PLANNED</div></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">03</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">DONE</div></div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">Dashboard</div>
-        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">React + Tailwind interface to launch scans and visualize vulnerabilities and risk assessments.</div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">React + Tailwind operator console — a scan form with a consent gate, a live Siege Log, and a Battle Report pairing raw findings with the AI analysis.</div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px">
-      <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">PASSIVE CHECKS SHIPPED TODAY</div>
+      <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">PASSIVE CHECKS · READ-ONLY</div>
       <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">TLS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Protocol version, certificate validity &amp; expiry, cipher suite</div></div>
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Headers</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Missing defensive headers, version-leaking headers, redirect chains</div></div>
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Sensitive paths</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Probes exposed paths — /.env, /.git/, /admin — and records status codes</div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">ACTIVE CHECKS · OPT-IN, CONSENT-GATED</div>
+      <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">SQL injection</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when an injected payload makes the response leak a database error signature</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">XSS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when a script payload is reflected back unescaped (exact-match, so escaped reflections clear)</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Path traversal</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when a ../ payload makes the response leak system-file contents (e.g. /etc/passwd)</div></div>
       </div>
     </div>
     <div class="grid-2" style="display:grid;grid-template-columns:340px 1fr;gap:32px;align-items:center;margin-top:8px;border:1px solid #1c2420;border-radius:6px;padding:32px;background:radial-gradient(120% 120% at 30% 20%,#0e1411,#0a0d0b)">
@@ -114,10 +122,18 @@ html{scroll-behavior:smooth}
       <div style="display:flex;flex-direction:column;gap:14px">
         <div style="font-size:11px;color:#5c6b63;letter-spacing:0.14em">THE MODEL</div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:22px;font-weight:600;color:#eef3ef;line-height:1.3">A target's surface is a perimeter — Fortify walks the walls before anyone else does.</div>
-        <div style="font-size:13px;color:#8fa197;line-height:1.8">Each passive check maps to a gate in the wall: TLS is the drawbridge, headers are the battlements, exposed paths are the postern doors left ajar. The scan reports which are open, which leak, and which hold — read-only, safe against systems you're authorized to test.</div>
+        <div style="font-size:13px;color:#8fa197;line-height:1.8">Each check maps to a gate in the wall: TLS is the drawbridge, headers are the battlements, exposed paths are the postern doors left ajar. Passive checks watch the walls read-only; opt-in active checks rattle the gates with payloads, only against a target you've authorized. Then the AI analyzer ranks which breaches to fix first.</div>
       </div>
     </div>
-    <div style="height:200px;border:1px dashed #24312a;border-radius:4px;background:repeating-linear-gradient(45deg,#0e1411,#0e1411 12px,#0b0f0d 12px,#0b0f0d 24px);display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;font-size:11px;color:#5c6b63"><div style="font-size:12px;color:#7c8a82">dashboard — arriving in Phase 4</div><div>React + Tailwind scan-results view</div></div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">THE OPERATOR CONSOLE · REACT + TAILWIND</div>
+      <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Command</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Scan form with a passive/active toggle and consent gate, plus a live Siege Log polling the API</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Battle Report</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Raw findings beside the AI analysis — risk badge, summary, per-finding severity + remediation, priority order</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Settings</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Pick the AI provider — Local · Ollama vs Cloud · Gemini — and bring your own key</div></div>
+      </div>
+      <div style="font-size:12px;color:#5c6b63;line-height:1.7;margin-top:4px">Phases 1–4 shipped. Next (Phase 5): PDF export, Docker, and a hosted demo.</div>
+    </div>
   </div>
 
   <!-- FOOTER NAV -->
