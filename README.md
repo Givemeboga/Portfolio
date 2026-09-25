@@ -1,37 +1,28 @@
-# Gl1tch — Youssef Ben Chaouacha · Portfolio
+# Gl1tch — Cybersecurity & Cloud Portfolio
 
-👋 Hi, I'm **Youssef** — a Cybersecurity & Cloud Engineering student from Tunisia,
-online as **Gl1tch**. I'm on the offensive-security track (aspiring penetration
-tester), working through the HTB Academy Penetration Tester path and playing CTFs
-whenever I get the chance. I love building systems and then breaking them to
-understand how they really tick. This is the repo behind my portfolio — a place
-to share the projects I'm proud of and where I'm headed next.
+Hi, I'm **Youssef Ben Chaouacha**, a Cybersecurity & Cloud Engineering student from Tunisia, known online as **Gl1tch**.
 
-**Live:** https://givemeboga.github.io/Portfolio/
+I'm focused on **penetration testing, web & network security, cloud security, and CTFs**, while building practical projects along the way.
 
----
+🌐 **Portfolio:** https://givemeboga.github.io/Portfolio/
 
-Personal cybersecurity portfolio — a single-page static site with two project
-case-files (BioScan, Fortify). No build step, no server; works on any static host.
+## Projects
 
-## Structure
-- `index.html` — home
-- `bioscan.html`, `fortify.html` — project case-files
-- `support.js` — runtime (loads React from a CDN)
-- `assets/` — images, logos, certificates
+* 🧬 **BioScan** — Cloud & cybersecurity project
+* 🏰 **Fortify** — Cybersecurity & vulnerability assessment tool
+* 🎣 **Baitway** — Phishing analysis & IOC investigation platform
+* **And more...**
 
-## Run locally
-Any static file server works, e.g.:
+## Run Locally
+
 ```bash
 python -m http.server 8000
 ```
-Then open http://localhost:8000.
 
-## Deploy
-Hosted on GitHub Pages from the `main` branch (root). Push to `main` and the site
-redeploys automatically within about a minute:
-```bash
-git add .
-git commit -m "Update portfolio"
-git push
-```
+Then visit `http://localhost:8000`.
+
+## Tech
+
+`Python` · `FastAPI` · `React` · `Docker` · `Azure` · `Linux` · `Cisco` · `Cybersecurity`
+
+> Build it. Understand it. Break it. Secure it.
