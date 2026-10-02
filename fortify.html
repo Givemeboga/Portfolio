@@ -62,7 +62,7 @@ html{scroll-behavior:smooth}
           <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
             <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:52px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">Fortify</h1>
             <div style="font-size:11px;color:#9db3a7;border:1px solid #3a4a5c;padding:5px 11px;border-radius:3px;font-weight:600">OPEN SOURCE</div>
-            <div style="font-size:11px;color:oklch(0.84 0.18 150);border:1px solid oklch(0.84 0.18 150 / 0.5);padding:5px 11px;border-radius:3px;font-weight:600">v1.0.0</div>
+            <div style="font-size:11px;color:oklch(0.84 0.18 150);border:1px solid oklch(0.84 0.18 150 / 0.5);padding:5px 11px;border-radius:3px;font-weight:600">v1.2.0</div>
           </div>
         </div>
         <div style="font-size:15px;color:#c3d0dc;line-height:1.7">An open-source web application security scanner, MIT-licensed and built in phases — now three parts working together: a passive + active scanner, a grounded AI analyzer that runs on a local LLM by default, and a React operator console. Point it at a target and it probes the perimeter, then explains and ranks what it found.</div>
@@ -70,10 +70,10 @@ html{scroll-behavior:smooth}
     </div>
     <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap">
       <div><span style="color:#7c8a82">role:</span> author</div>
-      <div><span style="color:#7c8a82">status:</span> v1.0.0 · feature-complete</div>
+      <div><span style="color:#7c8a82">status:</span> v1.2.0 · The Keep</div>
       <div><span style="color:#7c8a82">license:</span> MIT</div>
       <a href="https://github.com/Givemeboga/Fortify" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/Fortify ↗</a>
-      <a href="https://github.com/Givemeboga/Fortify/releases/tag/v1.0.0" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">release notes ↗</a>
+      <a href="https://github.com/Givemeboga/Fortify/releases/tag/v1.2.0" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">release notes ↗</a>
     </div>
   </div>
 
@@ -89,7 +89,7 @@ html{scroll-behavior:smooth}
       <div style="border:1px solid #1c2420;border-radius:4px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
         <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">02</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">DONE</div></div>
         <div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">AI analyzer</div>
-        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Grounded LLM module: findings are pulled from the scan in code, then a local model (Ollama) only explains and scores them. Risk levels are computed in code, and scan data never leaves your machine. Cloud (Gemini) is opt-in, BYOK.</div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Grounded LLM module: findings are pulled from the scan in code, then a local model (Ollama) only explains and scores them. Risk levels are computed in code, and analysis is reproducible (temperature 0, fixed seed). Scan data never leaves your machine; cloud (Gemini) is opt-in, BYOK.</div>
       </div>
       <div style="border:1px solid #1c2420;border-radius:4px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
         <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:11px;color:#5c6b63">03</div><div style="font-size:10px;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:3px 8px;border-radius:3px;font-weight:600">DONE</div></div>
@@ -101,15 +101,15 @@ html{scroll-behavior:smooth}
       <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">PASSIVE CHECKS · READ-ONLY</div>
       <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">TLS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Protocol version, certificate validity &amp; expiry, cipher suite</div></div>
-        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Headers</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Missing defensive headers, version-leaking headers, redirect chains</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Headers</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Missing defensive headers, redirect chains, and leaky headers — extracts the software + version (e.g. nginx/1.18.0)</div></div>
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Sensitive paths</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Probes exposed paths — /.env, /.git/, /admin — and records status codes</div></div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px">
       <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">ACTIVE CHECKS · OPT-IN, CONSENT-GATED</div>
       <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
-        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">SQL injection</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when an injected payload makes the response leak a database error signature</div></div>
-        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">XSS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when a script payload is reflected back unescaped (exact-match, so escaped reflections clear)</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">SQL injection</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Error-based (leaked DB error signature) and blind boolean-based — infers injectability from TRUE/FALSE response differentials</div></div>
+        <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">XSS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when a unique per-scan canary token is reflected back unescaped — no false positives from pre-existing page content</div></div>
         <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Path traversal</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Flags a parameter when a ../ payload makes the response leak system-file contents (e.g. /etc/passwd)</div></div>
       </div>
     </div>
@@ -141,7 +141,7 @@ html{scroll-behavior:smooth}
         <img src="assets/fortify/shot-settings.png" alt="Fortify Settings — choose local Ollama or cloud Gemini AI provider" style="width:100%;height:auto;border-radius:5px;display:block;border:1px solid #1c2420">
         <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">Settings — pick the AI provider: local Ollama (fully private) or cloud Gemini (bring your own key), with an explicit data-leaves-the-machine warning.</figcaption>
       </figure>
-      <div style="font-size:12px;color:#5c6b63;line-height:1.7;margin-top:4px">Feature-complete in v1.0.0 — scanner, AI analyzer and dashboard, plus client-side PDF export, a one-command Docker stack (<span style="color:#8fa197">docker compose up --build</span>), and hardening: unguessable scan IDs and content-signature path detection for fewer false positives.</div>
+      <div style="font-size:12px;color:#5c6b63;line-height:1.7;margin-top:4px">v1.2.0 "The Keep" reskins the console into a medieval command center — a Command dashboard (stained-glass severity rollup + threats-sighted breakdown) and the Scriptorium, a provider-aware candle chart over recent AI reports. It builds on v1.1.0's deeper scanner (blind SQLi, header version detection, per-scan XSS canaries) and reproducible analysis, all runnable with one command: <span style="color:#8fa197">docker compose up --build</span>.</div>
     </div>
   </div>
 
