@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0f0d}
+html{scroll-behavior:smooth}
+::selection{background:oklch(0.84 0.18 150 / 0.3)}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  .nav-bar{padding:12px 16px !important}
+  .nav-bar div{font-size:11px !important}
+  .container{padding:0 20px !important}
+  .case-title{font-size:34px !important}
+  .ada-hero{flex-direction:column !important;align-items:flex-start !important;gap:20px !important}
+  .stats-row{flex-wrap:wrap !important}
+  .stats-row > div{flex:1 1 45% !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .exp-row{grid-template-columns:1fr !important;gap:6px !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:32px 20px 56px !important}
+}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Mono',monospace;color:#c9d4cd;background:#0b0f0d;min-height:100vh" data-screen-label="A.D.A case file">
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,0.14),rgba(0,0,0,0.14) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply"></div>
+
+<!-- AMBIENT BACKGROUND -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:linear-gradient(rgba(60,90,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(60,90,75,0.05) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)"></div>
+  <div style="position:absolute;top:-18%;left:8%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.05;filter:blur(46px);animation:drift1 26s ease-in-out infinite"></div>
+  <div style="position:absolute;bottom:-16%;right:6%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.04;filter:blur(52px);animation:drift2 32s ease-in-out infinite"></div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar" style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+  <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/ada$</div>
+  <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+</div>
+
+<div class="container" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+
+  <!-- HERO -->
+  <div style="padding:80px 0 56px;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
+    <div class="ada-hero" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <div style="width:140px;height:140px;border-radius:20px;overflow:hidden;flex:none;border:1px solid #24312a;background:#05090c;box-shadow:0 8px 30px rgba(0,0,0,0.45)"><img src="assets/ada/orb-hero.png" alt="Ada's particle orb" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:240px;flex:1">
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">A.D.A</h1>
+          <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">LOCAL VOICE AI · IN DEVELOPMENT</div>
+        </div>
+        <div style="font-size:15px;color:#8fa197;line-height:1.7">Agentic Dialogue Assistant — a personal voice assistant that listens, thinks and acts. Everything runs on two laptops at home: no cloud, no subscription, and no audio ever leaves the house.</div>
+      </div>
+    </div>
+    <div style="font-size:14px;color:#8fa197;line-height:1.8;max-width:760px">Say her name and talk normally, and she answers out loud — setting reminders, taking notes, looking things up, waking you in the morning. She never changes anything without your "yes". Named after Ada Lovelace.</div>
+    <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap;margin-top:4px">
+      <div><span style="color:#7c8a82">role:</span> author</div>
+      <div><span style="color:#7c8a82">status:</span> Phase 0 · building</div>
+      <div><span style="color:#7c8a82">license:</span> MIT</div>
+      <a href="https://github.com/Givemeboga/A.D.A" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/A.D.A ↗</a>
+    </div>
+    <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">2</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">home machines</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">0</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">cloud services · fully local</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">6</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">orb states</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">MIT</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">open source</div></div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// ada --principles</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Voice-first</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Wake her with a phrase, speak naturally, and interrupt her when you need to.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Local</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Speech, language model and memory all run on your own machines — nothing phones home.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Agentic</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">She uses tools to get things done — set reminders, take notes, look things up — not just to chat.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Secure by design</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Safety rules are enforced in code, not left to the model's judgement. The model proposes; the code decides.</div></div>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// architecture --two-nodes</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Ada is split across two machines so the heavy models never block the conversation, with a phone as her reach into the outside world.</div>
+    <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">Hub</div><div style="font-size:10px;color:#9db3a7;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">ALWAYS-ON</div></div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Listens for her name, manages the conversation and speaks the reply. Hosts the voice loop, tools, memory and the orb HUD.</div>
+      </div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">GPU node</div><div style="font-size:10px;color:#9db3a7;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">SECOND LAPTOP</div></div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Turns speech into text (faster-whisper) and runs the language model (Ollama · qwen3:8b). Does the heavy lifting off the Hub.</div>
+      </div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:18px;font-weight:600;color:#eef3ef">Phone</div><div style="font-size:10px;color:#9db3a7;border:1px solid #24312a;padding:3px 8px;border-radius:3px;font-weight:600">REACH</div></div>
+        <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Receives alarms and works as a remote, over self-hosted ntfy on a private Tailscale network.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HER FACE -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// her-face --orb</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Ada shows what she is doing through a living particle orb (Three.js). Each state is a different way information moves through her — inward while she listens, back and forth while she thinks, outward while she speaks. Orange appears only when she is waiting for your approval; red only when something has failed.</div>
+    <figure style="margin:0;border:1px solid #1c2420;border-radius:8px;background:#0e1411;padding:14px;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/ada/orb-states.png" alt="The six orb states: asleep, listening, thinking, speaking, confirming, error" style="width:100%;height:auto;border-radius:5px;display:block">
+      <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">The six states — asleep (presence), listening (reception), thinking (organization), speaking (expression), confirming (authorization, orange), error (coherence lost, red).</figcaption>
+    </figure>
+  </div>
+
+  <!-- SECURITY -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// security --model-proposes-code-decides</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Ada is built with an attacker's mindset. Everything that could be abused is constrained in code, never left to the model's judgement.</div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Allowlisted tools</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">She can only call tools on an allowlist — no shell, no payments, no sending messages.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Confirmation-gated</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Anything that changes something waits for your confirmation. Silence means no.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Data, not instructions</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Web pages and notes are treated as data, never as commands — a prompt-injection defense baked into the design.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Append-only audit log</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every tool call is written to an audit log; nothing she does is invisible.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Nothing exposed</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">No service is reachable from the internet; the machines talk over a private network only.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Guarded repository</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A gitleaks pre-commit hook, a CI secret scan and GitHub push protection keep keys and personal data out of git.</div></div>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// stack --list</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px 48px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">VOICE</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">openWakeWord</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Silero VAD</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Smart Turn</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Pipecat</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">faster-whisper</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Kokoro TTS</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">AI &amp; TOOLS</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Ollama · qwen3:8b</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">FastMCP</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">tool allowlist</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">MEMORY &amp; SCHEDULE</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">SQLite</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Chroma</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">APScheduler</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">HUD &amp; INFRA</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">FastAPI</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">WebSocket</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Three.js</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">ntfy</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Tailscale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// roadmap --phases</div>
+    <div style="font-size:12px;color:#5c6b63;line-height:1.7;margin-top:-6px">A long build, taken one provable step at a time.</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px">
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:oklch(0.84 0.18 150);flex:none">[~]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 0 — Setup</span> · repo, guardrails, machines talking <span style="color:oklch(0.84 0.18 150)">(in progress)</span></div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 1 — Parts</span> · each component proven on its own</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 2 — First words</span> · wake, listen, think, answer</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 3 — Face</span> · the orb follows her real state</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 4 — Hands</span> · tools, confirmation and audit log</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 5 — Memory</span> · remembers what you tell her, forgets on request</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 6 — Her name</span> · custom wake phrase, natural interruptions</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 7 — Reach</span> · phone alarms and remote</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 8 — v1</span> · hardening, prompt-injection defense, release</div></div>
+    </div>
+    <div style="font-size:12px;color:#5c6b63;line-height:1.7">Later: French, calendar &amp; email, Arabic, vision.</div>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div class="footer-bar" style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+    <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+    <a href="bioscan.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: BioScan →</a>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>
