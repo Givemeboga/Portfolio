@@ -62,7 +62,7 @@ html{scroll-behavior:smooth}
           <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">A.D.A</h1>
           <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">LOCAL VOICE AI · IN DEVELOPMENT</div>
         </div>
-        <div style="font-size:15px;color:#8fa197;line-height:1.7">Agentic Dialogue Assistant — a personal voice assistant that listens, thinks and acts. Everything runs on two laptops at home: no cloud, no subscription, and no audio ever leaves the house.</div>
+        <div style="font-size:15px;color:#8fa197;line-height:1.7">Agentic Dialogue Assistant — a personal voice assistant that listens, thinks and acts. Everything runs on your own devices — an always-on laptop, a gaming laptop for the heavy lifting and your phone: no cloud, no subscription, and no audio ever leaves your machines.</div>
       </div>
     </div>
     <div style="font-size:14px;color:#8fa197;line-height:1.8;max-width:760px">Say her name and talk normally, and she answers out loud — setting reminders, taking notes, looking things up, waking you in the morning. She never changes anything without your "yes". Named after Ada Lovelace.</div>
@@ -73,7 +73,7 @@ html{scroll-behavior:smooth}
       <a href="https://github.com/Givemeboga/A.D.A" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/A.D.A ↗</a>
     </div>
     <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
-      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">2</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">home machines</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">3</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">of your own devices</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">0</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">cloud services · fully local</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">6</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">orb states</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">MIT</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">open source</div></div>
@@ -109,6 +109,10 @@ html{scroll-behavior:smooth}
         <div style="font-size:12.5px;color:#8fa197;line-height:1.7">Receives alarms and works as a remote, over self-hosted ntfy on a private Tailscale network.</div>
       </div>
     </div>
+    <div style="border:1px solid #24312a;border-left:3px solid oklch(0.84 0.18 150);border-radius:6px;padding:22px 24px;background:#0e1411;display:flex;flex-direction:column;gap:8px;margin-top:4px">
+      <div style="font-size:11px;color:oklch(0.84 0.18 150);letter-spacing:0.1em">FALLBACK BRAIN</div>
+      <div style="font-size:13px;color:#8fa197;line-height:1.7">The GPU node is a gaming laptop that leaves the house, so before each request the Hub checks it's reachable. If it isn't, Ada answers with a smaller model on the Hub's own CPU (qwen3:4b / 1.7b) and the orb's core dims to show it — and reminders and alarms never depend on the GPU node at all.</div>
+    </div>
   </div>
 
   <!-- HER FACE -->
@@ -119,6 +123,7 @@ html{scroll-behavior:smooth}
       <img src="assets/ada/orb-states.png" alt="The six orb states: asleep, listening, thinking, speaking, confirming, error" style="width:100%;height:auto;border-radius:5px;display:block">
       <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">The six states — asleep (presence), listening (reception), thinking (organization), speaking (expression), confirming (authorization, orange), error (coherence lost, red).</figcaption>
     </figure>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">On the desktop the orb lives in a small always-on-top pop-up in a corner of the screen — it appears when you say her name, fades out when the conversation ends, and opens the full dashboard on a click (pywebview + a pystray tray icon).</div>
   </div>
 
   <!-- SECURITY -->
@@ -130,7 +135,7 @@ html{scroll-behavior:smooth}
       <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Confirmation-gated</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Anything that changes something waits for your confirmation. Silence means no.</div></div>
       <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Data, not instructions</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Web pages and notes are treated as data, never as commands — a prompt-injection defense baked into the design.</div></div>
       <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Append-only audit log</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every tool call is written to an audit log; nothing she does is invisible.</div></div>
-      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Nothing exposed</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">No service is reachable from the internet; the machines talk over a private network only.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Nothing exposed</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">No service is reachable from the internet; devices talk only over a private Tailscale network, with no router ports opened.</div></div>
       <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Guarded repository</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A gitleaks pre-commit hook, a CI secret scan and GitHub push protection keep keys and personal data out of git.</div></div>
     </div>
   </div>
@@ -153,7 +158,8 @@ html{scroll-behavior:smooth}
       <div style="display:flex;flex-direction:column;gap:12px">
         <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">AI &amp; TOOLS</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Ollama · qwen3:8b</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Ollama · qwen3:8b (GPU)</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">fallback · qwen3:4b/1.7b (CPU)</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">FastMCP</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">tool allowlist</span>
         </div>
@@ -172,6 +178,8 @@ html{scroll-behavior:smooth}
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">FastAPI</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">WebSocket</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Three.js</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">pywebview</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">pystray</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">ntfy</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Tailscale</span>
         </div>
@@ -186,8 +194,8 @@ html{scroll-behavior:smooth}
     <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px">
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:oklch(0.84 0.18 150);flex:none">[~]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 0 — Setup</span> · repo, guardrails, machines talking <span style="color:oklch(0.84 0.18 150)">(in progress)</span></div></div>
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 1 — Parts</span> · each component proven on its own</div></div>
-      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 2 — First words</span> · wake, listen, think, answer</div></div>
-      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 3 — Face</span> · the orb follows her real state</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 2 — First words</span> · wake, listen, think, answer; fallback brain</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 3 — Face</span> · the orb follows her real state; desktop pop-up &amp; dashboard</div></div>
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 4 — Hands</span> · tools, confirmation and audit log</div></div>
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 5 — Memory</span> · remembers what you tell her, forgets on request</div></div>
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#eef3ef;font-weight:600">Phase 6 — Her name</span> · custom wake phrase, natural interruptions</div></div>
