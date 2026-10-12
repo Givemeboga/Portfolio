@@ -25,6 +25,11 @@ A SOC analyst platform that unifies the two most repetitive triage tasks — phi
 
 [📄 Case file](https://givemeboga.github.io/Portfolio/baitway.html) · [💻 Repo](https://github.com/Givemeboga/Baitway)
 
+### 🔮 A.D.A — local AI · in development
+A private, local, agentic voice assistant — say her name and she listens, thinks and acts. Speech-to-text, a local LLM (Ollama) and TTS run across your own devices, with a CPU fallback when the GPU laptop is away and no audio ever leaving your machines. Security-first by design: tools are allowlisted, every action is confirmation-gated, and web content is treated as data, never instructions.
+
+[📄 Case file](https://givemeboga.github.io/Portfolio/ada.html) · [💻 Repo](https://github.com/Givemeboga/A.D.A)
+
 ---
 
 ## 🛠️ Technologies & Tools
