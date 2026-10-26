@@ -59,12 +59,12 @@ html{scroll-behavior:smooth}
     <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
       <div style="width:64px;height:64px;border-radius:14px;background:#0e1411;border:1px solid #24312a;display:flex;align-items:center;justify-content:center;flex:none;font-size:32px;box-shadow:0 4px 18px rgba(0,0,0,0.35)">🏥</div>
       <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">MedLink</h1>
-      <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">HEALTH PORTAL · TEAM OF 3</div>
+      <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">HEALTH PORTAL · TEAM OF 6</div>
     </div>
     <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:760px">A secure health portal that takes a three-clinic network (Sousse, Sfax &amp; Tunis — ~40 practitioners, 15,000 patients) off a phone-only system: patients book appointments and read results online, practitioners get a unified multi-site agenda, and staff run the back-office — on a Spring Boot API behind Keycloak identity, with a React dashboard. I designed and built its authentication &amp; authorization layer.</div>
     <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap;margin-top:4px">
       <div><span style="color:#7c8a82">role:</span> auth &amp; security backend</div>
-      <div><span style="color:#7c8a82">team:</span> 3 · 45 commits</div>
+      <div><span style="color:#7c8a82">team:</span> 6 · 45 commits · 11 PRs</div>
       <div><span style="color:#7c8a82">context:</span> ESPRIM · Cyber Security labs</div>
       <div><span style="color:#7c8a82">status:</span> V1.0.0</div>
       <a href="https://github.com/assali-mohamed-ali/api-MedLink" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">api-MedLink ↗</a>
@@ -74,7 +74,7 @@ html{scroll-behavior:smooth}
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">3</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">roles · patient · practitioner · staff</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">0</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">tokens in the browser</div></div>
       <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">5</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">security scanners in CI</div></div>
-      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">V1.0.0</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">first release</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">244</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">automated tests · mostly functional</div></div>
     </div>
   </div>
 
@@ -92,13 +92,15 @@ html{scroll-behavior:smooth}
   <!-- MY ROLE -->
   <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// my-role --auth-and-security</div>
-    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">On a three-person team I owned the identity and access layer of the API — the part a health portal lives or dies by — built test-first (the functional test goes in red, then the feature makes it green).</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">On a six-person team I owned the identity and access layer of the API — the part a health portal lives or dies by — built test-first (the functional test goes in red, then the feature makes it green).</div>
     <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
-      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Session lifecycle</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Login, logout and 15-minute idle expiry — each one ends the Keycloak session too, and answers with the API's own JSON error, never an empty body or a redirect.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Session lifecycle</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Login through the API (password grant, server to server), logout that ends both our session and Keycloak's, 15-minute idle expiry; a session also ends as soon as Keycloak refuses to renew its token (account disabled, signed out). Every refusal is the API's own JSON error, never a redirect.</div></div>
       <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Ownership guard</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A user can read only their own record; staff can read any. Everyone else gets a 403 — the same answer whether the id exists or not.</div></div>
       <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Append-only audit trail</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every refused access is written to an append-only table (DB triggers), with the caller, the IP and a redacted path — personal data in the URL never reaches the log.</div></div>
-      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Access-matrix build gate</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every <span style="color:#eef3ef">/api</span> route has a line in a role × route test — one for the right role, one for the wrong one. A route with no access rule fails the build.</div></div>
-      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Architecture &amp; threat model</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Wrote the architecture and threat-model docs and the decision record for the password-grant BFF — trust boundaries and controls mapped to code and tests.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Access-matrix build gate</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">One test file holds a role × route matrix: every <span style="color:#eef3ef">/api</span> route × 4 callers (anonymous, patient, practitioner, staff). The route list is read from Spring itself, so a new endpoint without an access rule fails the build. An allowed cell must also not answer a server error or a redirect.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Architecture &amp; threat model</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Wrote the architecture and threat-model docs and the decision record for the password-grant BFF — trust boundaries and controls mapped to code and tests.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Privilege escalation found &amp; fixed</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">While writing the threat model I found the staff role carried Keycloak admin rights — with only their own password a staff member could create accounts and read every user straight from Keycloak's admin API, bypassing the API's rules and audit trail. Proved it with a test (201 → 403 after the fix), removed the rights; only the API's service account keeps them.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Metrics off the public port <span style="color:#5c6b63;font-weight:400">(in review)</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">In production, Spring Boot Actuator (metrics, health) moves to a private management port that is never published; Prometheus scrapes it over the Docker network, and the public port keeps only <span style="color:#9db3a7">/livez</span> and <span style="color:#9db3a7">/readyz</span> (<span style="color:#9db3a7">{"status":"UP"}</span> only).</div></div>
     </div>
   </div>
 
@@ -141,6 +143,19 @@ html{scroll-behavior:smooth}
     <div style="font-size:12px;color:#5c6b63;line-height:1.7">Deploys are env-gated: one image per run, promoted by immutable digest through integration → staging → production over SSH, with a health check.</div>
   </div>
 
+  <!-- PROCESS -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// process --how-we-work</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Six people shipping to one protected <span style="color:#9db3a7">master</span> without stepping on each other — a ticket-driven, test-first flow with the rules enforced by CI, not goodwill.</div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">YouTrack · MLink</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Sprints split into sub-sprints, one ticket per task, with stories and epics. A ticket moves Open → In Progress → To Verify (with the PR link) → Done when merged. We comment on a teammate's ticket before touching a shared file.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Git flow</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">One branch per task, or a shared branch per epic — no stacked PRs. Every PR targets <span style="color:#9db3a7">master</span>, which is protected: it needs the code owner's review and a green CodeQL. Merge commits.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Tests first</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">The functional test is committed red, then made green, then a mutation check confirms it fails when the rule it guards is broken. Tests run in two class orders before every PR, so order can't hide a dependency.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Decisions &amp; threat model</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Decision records and a threat model live in the repo — decision 0001 keeps the OAuth password grant as a consciously accepted exception, with its conditions written down.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">AI disclosure</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every PR declares whether an AI tool helped and confirms the author reviewed the change — a repo rule, checked by CI.</div></div>
+    </div>
+  </div>
+
   <!-- STACK -->
   <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
     <div style="font-size:13px;color:oklch(0.84 0.18 150)">// stack --list</div>
@@ -176,6 +191,14 @@ html{scroll-behavior:smooth}
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Docker Compose</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Terraform</span>
           <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">GitHub Actions</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">PROCESS</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">YouTrack</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">GitHub PRs · code review</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">pre-commit hooks</span>
         </div>
       </div>
     </div>

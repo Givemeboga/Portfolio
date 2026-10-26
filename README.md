@@ -39,8 +39,8 @@ A private, local, agentic voice assistant — say her name and she listens, thin
 `Python` `Pipecat` `Ollama` `FastMCP` `Three.js`
 [📄 Case file](https://givemeboga.github.io/Portfolio/ada.html) · [💻 Repo](https://github.com/Givemeboga/A.D.A)
 
-### 🏥 MedLink — team project · V1.0.0
-A secure health portal for patients, practitioners and administrative staff across three clinics (Spring Boot + Keycloak API, React dashboard). On a team of 3, I built the authentication & authorization layer: a backend-for-frontend session model (no tokens in the browser), an ownership guard, an append-only audit trail, and an access-matrix test that fails the build on any unguarded route — behind a DevSecOps pipeline (CodeQL, OWASP Dependency-Check, gitleaks, Trivy, ZAP).
+### 🏥 MedLink — team of 6 · V1.0.0
+A secure health portal for patients, practitioners and administrative staff across three clinics (Spring Boot + Keycloak API, React dashboard). On a team of 6, I built the authentication & authorization layer: a backend-for-frontend session model (no tokens in the browser), an ownership guard, an append-only audit trail, an access-matrix test that fails the build on any unguarded route, and a privilege-escalation fix found via the threat model (staff held Keycloak admin rights) — behind a DevSecOps pipeline (CodeQL, OWASP Dependency-Check, gitleaks, Trivy, ZAP) and 244 automated tests.
 
 `Java` `Spring Boot` `Keycloak` `PostgreSQL` `Docker` `GitHub Actions`
 [📄 Case file](https://givemeboga.github.io/Portfolio/medlink.html) · [💻 API](https://github.com/assali-mohamed-ali/api-MedLink) · [🖥️ Dashboard](https://github.com/assali-mohamed-ali/medlink-dashboard)
@@ -65,11 +65,14 @@ A secure health portal for patients, practitioners and administrative staff acro
 **SOC / Blue Team**
 `Phishing & Email Analysis` · `IOC Lookup` · `SIEM` · `Grafana + Loki` · `Threat Intel`
 
-**Development**
-`Python` · `FastAPI` · `React` · `.NET` · `SQL`
+**AI / LLM**
+`Local LLMs (Ollama)` · `Agentic tools (FastMCP)` · `RAG / vector memory` · `AI-assisted analysis`
 
-**Cloud & Infrastructure**
-`Docker` · `Azure` · `Linux` · `Git` · `CI/CD` · `Ollama`
+**Development**
+`Python` · `Java` · `Spring Boot` · `FastAPI` · `React` · `.NET` · `SQL`
+
+**Cloud, DevOps & Security**
+`Docker` · `Terraform` · `GitHub Actions` · `Keycloak` · `CI/CD security (CodeQL · ZAP · Trivy)` · `Linux` · `Azure`
 
 **Networking**
 `Cisco` · `pfSense` · `GNS3` · `TCP/IP` · `Firewalls` · `VLANs`
