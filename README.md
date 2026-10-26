@@ -39,6 +39,12 @@ A private, local, agentic voice assistant — say her name and she listens, thin
 `Python` `Pipecat` `Ollama` `FastMCP` `Three.js`
 [📄 Case file](https://givemeboga.github.io/Portfolio/ada.html) · [💻 Repo](https://github.com/Givemeboga/A.D.A)
 
+### 🏥 MedLink — team project · V1.0.0
+A secure health portal for patients, practitioners and administrative staff across three clinics (Spring Boot + Keycloak API, React dashboard). On a team of 3, I built the authentication & authorization layer: a backend-for-frontend session model (no tokens in the browser), an ownership guard, an append-only audit trail, and an access-matrix test that fails the build on any unguarded route — behind a DevSecOps pipeline (CodeQL, OWASP Dependency-Check, gitleaks, Trivy, ZAP).
+
+`Java` `Spring Boot` `Keycloak` `PostgreSQL` `Docker` `GitHub Actions`
+[📄 Case file](https://givemeboga.github.io/Portfolio/medlink.html) · [💻 API](https://github.com/assali-mohamed-ali/api-MedLink) · [🖥️ Dashboard](https://github.com/assali-mohamed-ali/medlink-dashboard)
+
 ---
 
 ## 🏅 Certifications & Achievements

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0f0d}
+html{scroll-behavior:smooth}
+::selection{background:oklch(0.84 0.18 150 / 0.3)}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  .nav-bar{padding:12px 16px !important}
+  .nav-bar div{font-size:11px !important}
+  .container{padding:0 20px !important}
+  .case-title{font-size:34px !important}
+  .stats-row{flex-wrap:wrap !important}
+  .stats-row > div{flex:1 1 45% !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .exp-row{grid-template-columns:1fr !important;gap:6px !important}
+  .flow-row{flex-direction:column !important;align-items:stretch !important}
+  .flow-row .flow-arrow{transform:rotate(90deg) !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:32px 20px 56px !important}
+}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Mono',monospace;color:#c9d4cd;background:#0b0f0d;min-height:100vh" data-screen-label="MedLink case file">
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,0.14),rgba(0,0,0,0.14) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply"></div>
+
+<!-- AMBIENT BACKGROUND -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:linear-gradient(rgba(60,90,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(60,90,75,0.05) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)"></div>
+  <div style="position:absolute;top:-18%;left:8%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.05;filter:blur(46px);animation:drift1 26s ease-in-out infinite"></div>
+  <div style="position:absolute;bottom:-16%;right:6%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.04;filter:blur(52px);animation:drift2 32s ease-in-out infinite"></div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar" style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+  <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/medlink$</div>
+  <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+</div>
+
+<div class="container" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+
+  <!-- HERO -->
+  <div style="padding:80px 0 56px;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+      <div style="width:64px;height:64px;border-radius:14px;background:#0e1411;border:1px solid #24312a;display:flex;align-items:center;justify-content:center;flex:none;font-size:32px;box-shadow:0 4px 18px rgba(0,0,0,0.35)">🏥</div>
+      <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">MedLink</h1>
+      <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">HEALTH PORTAL · TEAM OF 3</div>
+    </div>
+    <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:760px">A secure health portal that takes a three-clinic network (Sousse, Sfax &amp; Tunis — ~40 practitioners, 15,000 patients) off a phone-only system: patients book appointments and read results online, practitioners get a unified multi-site agenda, and staff run the back-office — on a Spring Boot API behind Keycloak identity, with a React dashboard. I designed and built its authentication &amp; authorization layer.</div>
+    <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap;margin-top:4px">
+      <div><span style="color:#7c8a82">role:</span> auth &amp; security backend</div>
+      <div><span style="color:#7c8a82">team:</span> 3 · 45 commits</div>
+      <div><span style="color:#7c8a82">context:</span> ESPRIM · Cyber Security labs</div>
+      <div><span style="color:#7c8a82">status:</span> V1.0.0</div>
+      <a href="https://github.com/assali-mohamed-ali/api-MedLink" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">api-MedLink ↗</a>
+      <a href="https://github.com/assali-mohamed-ali/medlink-dashboard" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">medlink-dashboard ↗</a>
+    </div>
+    <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">3</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">roles · patient · practitioner · staff</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">0</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">tokens in the browser</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">5</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">security scanners in CI</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">V1.0.0</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">first release</div></div>
+    </div>
+  </div>
+
+  <!-- SCOPE -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// scope --what-it-does</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">The brief: cut the switchboard load and give patients secure, remote access to their records — without weakening medical confidentiality (Tunisian INPDP, data kept in-country).</div>
+    <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:22px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Patient space</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Create an account, book / cancel / reschedule appointments, read results and documents, get reminders.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:22px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Practitioner space</div><div style="font-size:12px;color:#8fa197;line-height:1.6">A unified agenda across the three sites, the record of the patient in consultation, and consultation reports.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:22px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Back-office</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Manage accounts across the three clinics, export anonymized activity stats, and read the access audit log.</div></div>
+    </div>
+  </div>
+
+  <!-- MY ROLE -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// my-role --auth-and-security</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">On a three-person team I owned the identity and access layer of the API — the part a health portal lives or dies by — built test-first (the functional test goes in red, then the feature makes it green).</div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Session lifecycle</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Login, logout and 15-minute idle expiry — each one ends the Keycloak session too, and answers with the API's own JSON error, never an empty body or a redirect.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Ownership guard</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A user can read only their own record; staff can read any. Everyone else gets a 403 — the same answer whether the id exists or not.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Append-only audit trail</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every refused access is written to an append-only table (DB triggers), with the caller, the IP and a redacted path — personal data in the URL never reaches the log.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Access-matrix build gate</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Every <span style="color:#eef3ef">/api</span> route has a line in a role × route test — one for the right role, one for the wrong one. A route with no access rule fails the build.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Architecture &amp; threat model</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Wrote the architecture and threat-model docs and the decision record for the password-grant BFF — trust boundaries and controls mapped to code and tests.</div></div>
+    </div>
+  </div>
+
+  <!-- AUTH / BFF -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// auth --backend-for-frontend</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">The browser never talks to Keycloak. The API is the only component that does — so the front end holds an HttpOnly session cookie and a readable XSRF token, never an access token, a Keycloak page or a redirect.</div>
+    <div class="flow-row" style="display:flex;align-items:stretch;gap:12px;margin-top:4px">
+      <div style="flex:1;border:1px solid #1c2420;border-radius:6px;padding:22px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:#eef3ef">Browser · React</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Sends email + password and the CSRF token. Gets back the user and an HttpOnly session cookie — and nothing else.</div></div>
+      <div class="flow-arrow" style="display:flex;align-items:center;color:oklch(0.84 0.18 150);font-size:20px;flex:none">→</div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:6px;padding:22px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:#eef3ef">api-MedLink</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Does the password grant server-to-server, keeps the tokens in the server session, and maps everything to one JSON error shape.</div></div>
+      <div class="flow-arrow" style="display:flex;align-items:center;color:oklch(0.84 0.18 150);font-size:20px;flex:none">→</div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:6px;padding:22px;background:#0e1411;display:flex;flex-direction:column;gap:8px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:600;color:#eef3ef">Keycloak</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Identity, roles (via groups) and per-account lockout after 5 failures. Reached only by the API's confidential clients.</div></div>
+    </div>
+  </div>
+
+  <!-- SECURITY -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// security --by-design</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Deny by default</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Routes are closed unless a role rule opens them — <span style="color:#9db3a7">@PreAuthorize</span> + an ownership guard for own-data access.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">No account enumeration</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Register, login and resend answer the same for any email; a locked account answers like a wrong password.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Rate limits</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Per-IP on login/register/resend (429 + Retry-After, shared across instances via Postgres); per-account lockout in Keycloak.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">CSRF + HttpOnly session</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Every write echoes the XSRF token or gets 403; the session cookie is HttpOnly, SameSite=Strict, Secure in prod.</div></div>
+    </div>
+  </div>
+
+  <!-- DEVSECOPS -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// pipeline --devsecops</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Security is enforced on every push, not just reviewed. The team's pipeline gates each pull request before it can reach <span style="color:#9db3a7">master</span>.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">CodeQL · SAST</span>
+      <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">OWASP Dependency-Check · SCA</span>
+      <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">gitleaks · secrets</span>
+      <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Trivy · container scan</span>
+      <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">OWASP ZAP · DAST</span>
+      <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">build + functional tests</span>
+    </div>
+    <div style="font-size:12px;color:#5c6b63;line-height:1.7">Deploys are env-gated: one image per run, promoted by immutable digest through integration → staging → production over SSH, with a health check.</div>
+  </div>
+
+  <!-- STACK -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// stack --list</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px 48px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">BACKEND</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Java 17</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Spring Boot 4.1</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Spring Security</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Flyway</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">IDENTITY &amp; DATA</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Keycloak 26</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">PostgreSQL</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">TESTING</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Testcontainers</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">functional (over HTTP)</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Postman / newman</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">FRONTEND &amp; OPS</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">React · Vite</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Docker Compose</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Terraform</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">GitHub Actions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div class="footer-bar" style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+    <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+    <a href="bioscan.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: BioScan →</a>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>
