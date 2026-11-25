@@ -45,6 +45,18 @@ A secure health portal for patients, practitioners and administrative staff acro
 `Java` `Spring Boot` `Keycloak` `PostgreSQL` `Docker` `GitHub Actions`
 [📄 Case file](https://givemeboga.github.io/Portfolio/medlink.html) · [💻 API](https://github.com/assali-mohamed-ali/api-MedLink) · [🖥️ Dashboard](https://github.com/assali-mohamed-ali/medlink-dashboard)
 
+### 🏢 mini-dc-lab — RAM+ Data Center · 50/50 tests
+A complete data center emulated with containers on one laptop (WSL2 + Docker + Containerlab, no GNS3 VM). 36 containers across 3 buildings: dual ISPs with FRR edge routers, redundant Arista cEOS cores (VRRP, LACP, MSTP, OSPF), an nftables firewall pair with Suricata IDS, a TrueNAS iSCSI SAN, MariaDB HA and a Zabbix NOC — every failover path measured (ISP ≈0.2 s, DB ≈0.6 s) and 50/50 automated checks passing.
+
+`Containerlab` `Arista cEOS` `FRRouting` `nftables` `TrueNAS` `Zabbix` `WSL2`
+[📄 Case file](https://givemeboga.github.io/Portfolio/minidc.html) · [💻 Repo](https://github.com/Givemeboga/mini-dc-lab)
+
+### 🗺️ Marauder — local privesc tool · in development
+A single-binary Linux post-exploitation enumeration tool in Go. On an authorized box it maps the system and reveals privilege-escalation paths (SUID, sudo, cron, writable services) and secrets (SSH keys, history, creds), across three modules — `revelio`, `alohomora`, `niffler`. It enumerates and reports; it never exploits.
+
+`Go` `single static binary` `Linux` `CTF / pentest`
+[📄 Case file](https://givemeboga.github.io/Portfolio/marauder.html) · [💻 Repo](https://github.com/Givemeboga/Marauder)
+
 ---
 
 ## 🏅 Certifications & Achievements
@@ -69,13 +81,13 @@ A secure health portal for patients, practitioners and administrative staff acro
 `Local LLMs (Ollama)` · `Agentic tools (FastMCP)` · `RAG / vector memory` · `AI-assisted analysis`
 
 **Development**
-`Python` · `Java` · `Spring Boot` · `FastAPI` · `React` · `.NET` · `SQL`
+`Python` · `Go` · `Java` · `Spring Boot` · `FastAPI` · `React` · `.NET` · `SQL`
 
 **Cloud, DevOps & Security**
 `Docker` · `Terraform` · `GitHub Actions` · `Keycloak` · `CI/CD security (CodeQL · ZAP · Trivy)` · `Linux` · `Azure`
 
 **Networking**
-`Cisco` · `pfSense` · `GNS3` · `TCP/IP` · `Firewalls` · `VLANs`
+`Cisco` · `Arista cEOS` · `FRRouting` · `Containerlab` · `GNS3` · `pfSense` · `OSPF · VRRP · MSTP` · `VLANs`
 
 ---
 

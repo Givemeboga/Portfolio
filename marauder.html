@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0f0d}
+html{scroll-behavior:smooth}
+::selection{background:oklch(0.84 0.18 150 / 0.3)}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  .nav-bar{padding:12px 16px !important}
+  .nav-bar div{font-size:11px !important}
+  .container{padding:0 20px !important}
+  .case-title{font-size:34px !important}
+  .stats-row{flex-wrap:wrap !important}
+  .stats-row > div{flex:1 1 45% !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .exp-row{grid-template-columns:1fr !important;gap:6px !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:32px 20px 56px !important}
+}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Mono',monospace;color:#c9d4cd;background:#0b0f0d;min-height:100vh" data-screen-label="Marauder case file">
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,0.14),rgba(0,0,0,0.14) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply"></div>
+
+<!-- AMBIENT BACKGROUND -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:linear-gradient(rgba(60,90,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(60,90,75,0.05) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)"></div>
+  <div style="position:absolute;top:-18%;left:8%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.05;filter:blur(46px);animation:drift1 26s ease-in-out infinite"></div>
+  <div style="position:absolute;bottom:-16%;right:6%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.04;filter:blur(52px);animation:drift2 32s ease-in-out infinite"></div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar" style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+  <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/marauder$</div>
+  <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+</div>
+
+<div class="container" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+
+  <!-- HERO -->
+  <div style="padding:80px 0 56px;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+      <div style="width:64px;height:64px;border-radius:14px;background:#16130f;border:1px solid #3a342a;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 4px 18px rgba(0,0,0,0.35)"><img src="assets/marauder/logo-mark.svg" alt="Marauder mark" style="width:46px;height:46px;display:block"></div>
+      <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">Marauder</h1>
+      <div style="font-size:11px;color:#9db3a7;border:1px solid #24312a;padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">LINUX PRIVESC · IN DEVELOPMENT</div>
+    </div>
+    <div style="font-size:13px;color:#b9a77f;font-style:italic">Aperit Semitas — it opens the paths.</div>
+    <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:760px">A lightweight, single-binary enumeration tool for Linux post-exploitation, written in Go. Once you have a foothold on a host — in an authorized engagement or a CTF — it maps the system like a Marauder's Map for a box and reveals local privilege-escalation paths and useful secrets. It enumerates and reports; it does <span style="color:#eef3ef">not</span> exploit anything.</div>
+    <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap;margin-top:4px">
+      <div><span style="color:#7c8a82">role:</span> author</div>
+      <div><span style="color:#7c8a82">language:</span> Go · single static binary</div>
+      <div><span style="color:#7c8a82">status:</span> v0.1 · early development</div>
+      <div><span style="color:#7c8a82">license:</span> MIT</div>
+      <a href="https://github.com/Givemeboga/Marauder" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/Marauder ↗</a>
+    </div>
+    <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">3</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">modules · one map</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">1</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">static binary · 0 runtime deps</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">stdlib</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">Go standard library</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">MIT</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">open source</div></div>
+    </div>
+    <figure style="margin:8px 0 0;border:1px solid #2a2419;border-radius:8px;background:#16130f;padding:22px;display:flex;align-items:center;justify-content:center">
+      <img src="assets/marauder/logo-crest-dark.svg" alt="Marauder crest — Aperit Semitas" style="width:100%;max-width:440px;height:auto;display:block">
+    </figure>
+  </div>
+
+  <!-- MODULES -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// modules --the-map</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Run <span style="color:#9db3a7">marauder</span> with no arguments for the full map, or one module at a time — each named for what it does.</div>
+    <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#eef3ef">revelio <span style="color:#5c6b63;font-weight:400">· reveal</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">System enumeration — OS and kernel version, users and groups, high-UID accounts, environment and <span style="color:#9db3a7">PATH</span>, mounts and <span style="color:#9db3a7">fstab</span> credentials.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#eef3ef">alohomora <span style="color:#5c6b63;font-weight:400">· unlock</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Privilege-escalation paths — SUID / SGID binaries, sudo rules and misconfigurations, cron jobs, writable service paths, world-writable files.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#eef3ef">niffler <span style="color:#5c6b63;font-weight:400">· dig</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Secret hunting — SSH private keys, shell history, credentials in config files and other interesting files left on the box.</div></div>
+    </div>
+  </div>
+
+  <!-- DESIGN -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// design --goals</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Lands clean</div><div style="font-size:12px;color:#8fa197;line-height:1.6">One static binary, no runtime dependencies on the target — drop it, run it, read the map. A stripped <span style="color:#9db3a7">CGO_ENABLED=0</span> build has no libc dependency.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Native collection</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Standard library where possible, reading the system in Go rather than shelling out — a smaller, quieter footprint on the host.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Clean output</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Human-readable now; the banner prints to stderr and is suppressed by <span style="color:#9db3a7">--quiet</span> or <span style="color:#9db3a7">--json</span>, so it never pollutes a pipe. Machine-readable JSON is planned.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Authorized use only</div><div style="font-size:12px;color:#8fa197;line-height:1.6">An assessment tool for systems you own or are authorized to test — CTFs, labs, authorized engagements. It reports; it never exploits.</div></div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// roadmap</div>
+    <div style="font-size:12px;color:#5c6b63;line-height:1.7;margin-top:-6px">A learning project — built to go deep on Linux privilege-escalation enumeration, and to learn Go from the ground up. Checks are added incrementally.</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px 40px">
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5ee29a;flex:none">[x]</span><div style="font-size:13px;color:#8fa197;line-height:1.6">Project skeleton &amp; module structure</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6">First check: SUID binaries (<span style="color:#9db3a7">alohomora</span>)</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#9db3a7">revelio</span> core system checks</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#9db3a7">alohomora</span> core privesc checks</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6"><span style="color:#9db3a7">niffler</span> core secret checks</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6">Structured (JSON) output</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6">Concurrent check execution</div></div>
+      <div style="display:flex;align-items:baseline;gap:14px"><span style="font-size:12px;color:#5c6b63;flex:none">[ ]</span><div style="font-size:13px;color:#8fa197;line-height:1.6">Windows support</div></div>
+    </div>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div class="footer-bar" style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+    <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+    <a href="minidc.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: mini-dc-lab →</a>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>

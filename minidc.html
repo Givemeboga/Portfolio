@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0b0f0d}
+html{scroll-behavior:smooth}
+::selection{background:oklch(0.84 0.18 150 / 0.3)}
+@keyframes drift1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(8vw,6vh) scale(1.15)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,-5vh) scale(1.2)}100%{transform:translate(0,0) scale(1)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.001ms !important;animation-iteration-count:1 !important}}
+@media (max-width: 700px){
+  .nav-bar{padding:12px 16px !important}
+  .nav-bar div{font-size:11px !important}
+  .container{padding:0 20px !important}
+  .case-title{font-size:30px !important}
+  .stats-row{flex-wrap:wrap !important}
+  .stats-row > div{flex:1 1 45% !important}
+  .grid-2{grid-template-columns:1fr !important}
+  .grid-3{grid-template-columns:1fr !important}
+  .exp-row{grid-template-columns:1fr !important;gap:6px !important}
+  .footer-bar{flex-direction:column !important;align-items:flex-start !important;gap:12px !important;padding:32px 20px 56px !important}
+}
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Mono',monospace;color:#c9d4cd;background:#0b0f0d;min-height:100vh" data-screen-label="mini-dc-lab case file">
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,0.14),rgba(0,0,0,0.14) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply"></div>
+
+<!-- AMBIENT BACKGROUND -->
+<div style="position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden">
+  <div style="position:absolute;inset:0;opacity:0.5;background-image:linear-gradient(rgba(60,90,75,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(60,90,75,0.05) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000,transparent 75%)"></div>
+  <div style="position:absolute;top:-18%;left:8%;width:46vw;height:46vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.05;filter:blur(46px);animation:drift1 26s ease-in-out infinite"></div>
+  <div style="position:absolute;bottom:-16%;right:6%;width:40vw;height:40vw;border-radius:50%;background:radial-gradient(circle,oklch(0.84 0.18 150),transparent 62%);opacity:0.04;filter:blur(52px);animation:drift2 32s ease-in-out infinite"></div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar" style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:16px 48px;border-bottom:1px solid #1c2420;background:rgba(11,15,13,0.92);backdrop-filter:blur(8px)">
+  <div style="font-size:14px;font-weight:600;color:oklch(0.84 0.18 150)">gl1tch@portfolio:~/projects/mini-dc-lab$</div>
+  <a href="index.html" style="font-size:12.5px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+</div>
+
+<div class="container" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 48px">
+
+  <!-- HERO -->
+  <div style="padding:80px 0 56px;display:flex;flex-direction:column;gap:20px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// cat case-file.md</div>
+    <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+      <div style="width:64px;height:64px;border-radius:14px;background:#0e1411;border:1px solid #24312a;display:flex;align-items:center;justify-content:center;flex:none;font-size:32px;box-shadow:0 4px 18px rgba(0,0,0,0.35)">🏢</div>
+      <h1 class="case-title" style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:56px;font-weight:700;color:#eef3ef;letter-spacing:-0.02em">mini-dc-lab</h1>
+      <div style="font-size:11px;color:oklch(0.84 0.18 150);border:1px solid oklch(0.84 0.18 150 / 0.5);padding:5px 11px;border-radius:3px;font-weight:600;white-space:nowrap">DATA-CENTER LAB · 50/50 TESTS</div>
+    </div>
+    <div style="font-size:15px;color:#8fa197;line-height:1.7;max-width:760px">The <span style="color:#eef3ef">RAM+ Data Center</span> — a complete data center (network <em>and</em> buildings) emulated with containers on a single Windows laptop. No GNS3 VM: just WSL2, Docker and Containerlab. 36 containers, dual ISPs, redundant cores and firewalls, an iSCSI SAN and a full NOC — with every failover path measured.</div>
+    <div style="display:flex;gap:32px;font-size:12px;color:#5c6b63;flex-wrap:wrap;margin-top:4px">
+      <div><span style="color:#7c8a82">role:</span> author · design, build, tests</div>
+      <div><span style="color:#7c8a82">context:</span> school project · networking &amp; cloud</div>
+      <div><span style="color:#7c8a82">status:</span> validated · 50/50 tests</div>
+      <a href="https://github.com/Givemeboga/mini-dc-lab" target="_blank" style="color:oklch(0.84 0.18 150);text-decoration:none">github.com/Givemeboga/mini-dc-lab ↗</a>
+    </div>
+    <div class="stats-row" style="display:flex;gap:16px;margin-top:16px">
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">36</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">containers · 44 links</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">7</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">VLANs · 3 buildings</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">≈0.2s</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">ISP failover (OSPF)</div></div>
+      <div style="flex:1;border:1px solid #1c2420;border-radius:4px;padding:18px 22px;background:#0e1411"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:26px;font-weight:700;color:#eef3ef">50/50</div><div style="font-size:11px;color:#5c6b63;margin-top:4px">automated checks passing</div></div>
+    </div>
+    <figure style="margin:8px 0 0;border:1px solid #1c2420;border-radius:8px;background:#0e1411;padding:14px;display:flex;flex-direction:column;gap:12px">
+      <img src="assets/minidc/topoviewer.png" alt="RAM+ data center topology: ISPs, FRR edges, firewall, cEOS cores and ToR switches, server racks, isolated iSCSI SAN and the NOC" style="width:100%;height:auto;border-radius:5px;display:block;background:#fff">
+      <figcaption style="font-size:11px;color:#5c6b63;letter-spacing:0.04em">The topology — two ISPs, FRR edge routers, an nftables firewall pair, Arista cEOS cores and ToR switches, three VLAN-segmented buildings, an isolated iSCSI SAN and a Zabbix NOC.</figcaption>
+    </figure>
+  </div>
+
+  <!-- NETWORK CORE -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// network --core</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">A real campus design, shrunk to containers: redundant everything, one out-of-band management network, and OSPF carrying the whole fabric.</div>
+    <div class="grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Edge</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Two ISPs NAT to the real Internet; two FRR edge routers do NAT and port-forwards, each announcing a default route in OSPF (cost 10 / 20).</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Core</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Two Arista cEOS L3 cores — VRRP load sharing on the gateways, a 2×10G LACP bundle between them, MSTP (one root per VLAN group), OSPF.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:6px;padding:26px;background:#0e1411;display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Sans',sans-serif;font-size:17px;font-weight:600;color:#eef3ef">Access</div><div style="font-size:12.5px;color:#8fa197;line-height:1.7">Two cEOS top-of-rack switches, dual-homed to both cores; servers behind keepalived virtual IPs; an isolated, non-routed SAN segment.</div></div>
+    </div>
+  </div>
+
+  <!-- RESILIENCE -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// resilience --measured</div>
+    <div style="font-size:13px;color:#8fa197;line-height:1.8;max-width:760px">Every redundancy claim is backed by a drill — cut a device, time the recovery, confirm nothing is lost.</div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420;align-items:baseline"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">ISP failover · <span style="color:oklch(0.84 0.18 150)">≈0.2 s</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Each edge announces its default route in OSPF (cost 10 / 20); losing the primary reroutes through the backup.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420;align-items:baseline"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Firewall failover · <span style="color:oklch(0.84 0.18 150)">≈0.2 s</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">fw-01 isolated → BFD + OSPF reroute through fw-02, the DMZ gateway moves, open connections kept via conntrackd.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420;align-items:baseline"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Database failover · <span style="color:oklch(0.84 0.18 150)">≈0.6 s</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">MariaDB replication + a keepalived virtual IP; no data lost on either a crash or a clean server-offline.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420;align-items:baseline"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Website / intranet · <span style="color:oklch(0.84 0.18 150)">≈0.8 s</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A cut DMZ or rack server; the virtual IP for <span style="color:#9db3a7">www.dc.lab</span> / intranet moves to its pair in the other rack.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #1c2420;align-items:baseline"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Gateway (VRRP) · <span style="color:oklch(0.84 0.18 150)">≈2.8 s</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A core lost; servers keep their <span style="color:#9db3a7">.1</span> gateway as VRRP fails over to the surviving core.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:14px 0;align-items:baseline"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">DNS failover · <span style="color:oklch(0.84 0.18 150)">≈40 ms</span></div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">dns01 stopped → the secondary answers; backups run nightly with an automatic restore test (row counts match).</div></div>
+    </div>
+  </div>
+
+  <!-- SECURITY -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// security --defense-in-depth</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Firewall pair · default drop</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Two nftables firewalls (fw-02 standby), plus a host firewall on every server — allowed and forbidden flows checked rule by rule.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Suricata IDS · auto-block</div><div style="font-size:12px;color:#8fa197;line-height:1.6">Intrusion detection at the edges with automatic blocking, exercised against a Kali attacker in the demo.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">TLS everywhere · RADIUS</div><div style="font-size:12px;color:#8fa197;line-height:1.6">HTTPS, MariaDB TLS, Zabbix PSK and SNMPv3 inside the lab; switch logins via RADIUS; no secrets in git.</div></div>
+      <div style="border:1px solid #1c2420;border-radius:4px;padding:20px;background:#0e1411"><div style="font-size:13px;color:#eef3ef;font-weight:600;margin-bottom:6px">Isolated SAN</div><div style="font-size:12px;color:#8fa197;line-height:1.6">A non-routed storage segment: each server reaches only its own iSCSI LUN, ACL'd per initiator — another server's LUN is denied.</div></div>
+    </div>
+  </div>
+
+  <!-- STORAGE & OPS -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// storage-and-ops</div>
+    <div style="display:flex;flex-direction:column;gap:0;margin-top:4px">
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">TrueNAS iSCSI SAN</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">TrueNAS SCALE 25.10 as a KVM VM inside the lab — a ZFS mirror serving one iSCSI LUN per server with per-initiator ACLs.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Backups + restore test</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">A nightly job on backup01: database and switch configs, checksums, 7 restore points, a copy on TrueNAS (ZFS snapshots) and an automatic restore test.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #1c2420"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Zabbix 7 NOC</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Set up automatically — agents on every server and firewall, data-center checks, alarms and a dashboard; every device logs to two collectors over syslog, with NTP.</div></div>
+      <div class="exp-row" style="display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px 0"><div style="font-size:12.5px;color:#eef3ef;font-weight:600">Buildings &amp; power</div><div style="font-size:12.5px;color:#8fa197;line-height:1.6">Two technical buildings modelled for the design (2N power, UPS, generators, N+1 cooling, fire suppression, access control) — the non-emulated physical layer around the fabric.</div></div>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div style="padding:56px 0;border-top:1px solid #1c2420;display:flex;flex-direction:column;gap:24px">
+    <div style="font-size:13px;color:oklch(0.84 0.18 150)">// stack --list</div>
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px 48px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">NETWORK</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Containerlab</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Arista cEOS</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">FRRouting</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">OSPF · VRRP · MSTP · LACP</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">SECURITY</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">nftables</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Suricata IDS</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">RADIUS</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">TLS · SNMPv3</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">SERVICES &amp; STORAGE</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">nginx · keepalived</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">BIND9</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">MariaDB HA</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">TrueNAS SCALE · iSCSI</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:11px;color:#5c6b63;letter-spacing:0.1em">OPS &amp; PLATFORM</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Zabbix 7</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">rsyslog</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Docker · WSL2</span>
+          <span style="font-size:12px;padding:6px 12px;background:#131a16;border-radius:3px;color:#9db3a7">Bash · Python</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NAV -->
+  <div class="footer-bar" style="padding:48px 0 72px;border-top:1px solid #1c2420;display:flex;justify-content:space-between;align-items:center">
+    <a href="index.html" style="font-size:13px;color:#7c8a82;text-decoration:none" style-hover="color:oklch(0.84 0.18 150)">← cd ~</a>
+    <a href="bioscan.html" style="font-size:13px;font-weight:600;color:#0b0f0d;background:oklch(0.84 0.18 150);padding:13px 24px;border-radius:3px;text-decoration:none" style-hover="opacity:0.85">next: BioScan →</a>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+</body>
+</html>
